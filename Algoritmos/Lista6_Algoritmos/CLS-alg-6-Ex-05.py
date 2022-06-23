@@ -18,5 +18,4 @@ def main():
             lista.append(int(x))
 
 if __name__ == "__main__":
-    for i in main():
-        print(i)
+    print(main())
