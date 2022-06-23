@@ -1,4 +1,4 @@
-def main():
+﻿def main():
     a = int(input("Digite um valor: "))
     b = int(input("Digite um outro valor: "))
     return mdc(a, b)
@@ -13,3 +13,4 @@ def mdc(a,b):
 
 if __name__ == "__main__":
     print(main())
+    print(“teste”)
