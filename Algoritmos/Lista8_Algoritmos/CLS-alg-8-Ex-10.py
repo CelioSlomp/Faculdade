@@ -8,11 +8,26 @@ def main():
         val2 = int(input("Digite o numero: "))
         listaDesc.append(val1)
         listaDesc.append(val2)
-    return decrunlenght(listaDesc)
+    var = decrunlenght(listaDesc).split(" ")
+    var.remove(var[0])
+    return var
 
     
 def decrunlenght(li: list):
-    pass
+    st = " "
+    try:
+        if li[1] == 0:
+            li.remove(li[0])
+            li.remove(li[0])
+            st += li[0]
+            li[1] = li[1] - 1
+            return st + decrunlenght(li)
+        else:
+            st += li[0]
+            li[1] = li[1] - 1
+            return st + decrunlenght(li)
+    except:
+        return ""
 
 if __name__ == "__main__":
     print(main())

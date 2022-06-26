@@ -8,8 +8,8 @@ def main():
         listaDesc.append(val1)
     return codrunlenght(listaDesc)
 
-def codrunlenght(li):
-    pass
+def codrunlenght(li: list):
+    pass    
 
 if __name__ == "__main__":
     print(main())
