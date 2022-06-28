@@ -11,7 +11,6 @@ def main():
     var = decrunlenght(listaDesc).split(" ")
     var.remove(var[0])
     return var
-
     
 def decrunlenght(li: list):
     st = " "
