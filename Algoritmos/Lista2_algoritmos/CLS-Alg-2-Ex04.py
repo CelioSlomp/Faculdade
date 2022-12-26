@@ -1,5 +1,0 @@
-num1 = int(input("Digite o numero 1: "))
-num2 = int(input("Digite o numero 2: "))
-num3 = int(input("Digite o numero 3: "))
-meio = (num1 + num2 + num3) - min(num1, num2, num3) - max(num1, num2, num3)
-print(min(num1, num2, num3), meio, max(num1, num2, num3))

@@ -1,6 +1,0 @@
-print("|-----------------------------|")
-print("|Remetente: Celio Ludwig Slomp|")
-print("|Endereço        |")
-print("|Bairro              |")
-print("|CEP XXX                |")
-print("|-----------------------------|")
