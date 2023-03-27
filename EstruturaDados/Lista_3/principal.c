@@ -5,6 +5,7 @@ int main()
 {
     // Cria a lista
     NoLista *teste = sllCria();
+    NoLista *teste1 = sllCria();
 
     // Insere alguns elementos na lista
     teste = sllInsere(teste, 3);
@@ -36,4 +37,39 @@ int main()
     // printf("\nUltimo elemento: %.0f", teste->info);
 
     // Testes de implementação da lista 2
+
+    // Insere no final da lista
+    teste = sllInsereFim(teste, 2);
+    printf("\nElementos da lista: ");
+    sllImprime(teste);
+
+    // Verifica se são iguais
+    // teste1 = sllInsere(teste1, 4);
+    // printf("As listas são iguais? %d", sllIgual(teste, teste));
+
+    // Imprime recursivo
+    // printf("\nElementos da lista: ");
+    // sllImprimeRecursivo(teste);
+
+    // Verifica se é igual recursivamente
+    // teste1 = sllInsere(teste1, 4);
+    // printf("As listas são iguais? %d", sllIgualRecursivo(teste1, teste));
+
+    // Comprimento recursivo
+    // printf("o tamanho é: %d ", sllComprimentoRecursivo(teste));
+
+    // Retira elemento da lista
+    teste = sllRetira(teste, 2);
+    printf("\nElementos da lista: ");
+    sllImprimeRecursivo(teste);
+
+    // Apaga a lista
+    // sllLibera(teste);
+    // printf("\nElementos da lista: ");
+    // sllImprimeRecursivo(teste);
+
+    // Remove Recursivo
+    teste = sllRetiraRecursivo(teste, 4);
+    printf("\nElementos da lista: ");
+    sllImprimeRecursivo(teste);
 }

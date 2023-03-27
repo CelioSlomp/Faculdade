@@ -24,4 +24,4 @@ int sllIgual(NoLista *lista1, NoLista *lista2);
 void sllImprimeRecursivo(NoLista *head);
 NoLista *sllRetiraRecursivo(NoLista *head, int v);
 int sllComprimentoRecursivo(NoLista *head);
-NoLista *sllIgualRecursivo();
+int sllIgualRecursivo(NoLista *lista1, NoLista *lista2);
