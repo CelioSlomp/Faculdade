@@ -17,7 +17,7 @@ NoListaDupla *dllBusca(NoListaDupla *head, int v);  // Feito
 int dllComprimento(NoListaDupla *head);             // Feito
 NoListaDupla *dllUltimo();                          // Feito
 NoListaDupla *dllRetira(NoListaDupla *head, int v); // Feito
-void dllLibera(NoListaDupla *head);                 // Feito
-NoListaDupla *dllInsereFim(NoListaDupla *head, int v);
-int sllIgual(NoListaDupla *lista1, NoListaDupla *lista2);
-NoListaDupla sllMerge(NoListaDupla *l1, NoListaDupla *l2);
+void dllLibera(NoListaDupla *head);
+NoListaDupla *dllInsereFim(NoListaDupla *head, int v);    // Feito
+int dllIgual(NoListaDupla *lista1, NoListaDupla *lista2); // Feito
+NoListaDupla *dllMerge(NoListaDupla *l1, NoListaDupla *l2);
