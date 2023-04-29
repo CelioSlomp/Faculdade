@@ -19,7 +19,20 @@ int vazia(NoArvoreBinaria *raiz)
     return raiz == NULL;
 }
 
-const char *toString(NoArvoreBinaria *raiz) {}
+const char *toString(NoArvoreBinaria *raiz)
+{
+    char *str = (char *)malloc(sizeof(char) * numNos(raiz) * 10);
+    char *str2 = str;
+    str += sprintf(str, "<");
+    if (raiz != NULL)
+    {
+        str += sprintf(str, "%d", raiz->info);
+        str += sprintf(str, "%s", toString(raiz->sae));
+        str += sprintf(str, "%s", toString(raiz->sad));
+    }
+    str += sprintf(str, ">");
+    return str2;
+}
 
 int pertence(NoArvoreBinaria *raiz, int v)
 {
@@ -38,7 +51,15 @@ int pares(NoArvoreBinaria *raiz)
     return pares(raiz->sad) + val + pares(raiz->sae);
 }
 
-int folhas(NoArvoreBinaria *raiz) {}
+int folhas(NoArvoreBinaria *raiz)
+{
+    int val = 0;
+    if (raiz == NULL)
+        return 0;
+    if (raiz->sad == NULL && raiz->sae == NULL)
+        val++;
+    return folhas(raiz->sad) + val + folhas(raiz->sae);
+}
 
 void imprimePre(NoArvoreBinaria *raiz)
 {
@@ -52,12 +73,51 @@ void imprimePre(NoArvoreBinaria *raiz)
     printf(">");
 }
 
-void imprimeSim(NoArvoreBinaria *raiz) {}
+void imprimeSim(NoArvoreBinaria *raiz)
+{
+    printf("<");
+    if (raiz != NULL)
+    {
+        imprimeSim(raiz->sae);
+        printf("%d", raiz->info);
+        imprimeSim(raiz->sad);
+    }
+    printf(">");
+}
 
-void imprimePos(NoArvoreBinaria *raiz) {}
+void imprimePos(NoArvoreBinaria *raiz)
+{
+    printf("<");
+    if (raiz != NULL)
+    {
+        imprimePos(raiz->sae);
+        imprimePos(raiz->sad);
+        printf("%d", raiz->info);
+    }
+    printf(">");
+}
 
-int numNos(NoArvoreBinaria *raiz) {}
+int numNos(NoArvoreBinaria *raiz)
+{
+    if (raiz == NULL)
+        return 0;
+    if (raiz->sad == NULL && raiz->sae == NULL)
+        return 1;
+    return numNos(raiz->sad) + numNos(raiz->sae) + 1;
+}
 
-int altura(NoArvoreBinaria *raiz) {}
+int altura(NoArvoreBinaria *raiz)
+{
+    if (raiz == NULL || (raiz->sad == NULL && raiz->sae == NULL))
+        return 0;
+    int v1 = altura(raiz->sae) + 1;
+    int v2 = altura(raiz->sad) + 1;
+    if (v1 > v2)
+        return v1;
+    return v2;
+}
 
-int igual(NoArvoreBinaria *raiz) {}
+// Falta
+int igual(NoArvoreBinaria *raiz1, NoArvoreBinaria *raiz2)
+{
+}

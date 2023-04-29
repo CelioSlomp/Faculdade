@@ -10,16 +10,16 @@ struct NoArvoreBinaria
 
 typedef struct NoArvoreBinaria NoArvoreBinaria;
 
-NoArvoreBinaria *criar();
-NoArvoreBinaria *insere(int v, NoArvoreBinaria *sae, NoArvoreBinaria *sad);
-int vazia(NoArvoreBinaria *raiz);
-const char *toString(NoArvoreBinaria *raiz);
-int pertence(NoArvoreBinaria *raiz, int v);
-int pares(NoArvoreBinaria *raiz);
-int folhas(NoArvoreBinaria *raiz);
-void imprimePre(NoArvoreBinaria *raiz);
-void imprimeSim(NoArvoreBinaria *raiz);
-void imprimePos(NoArvoreBinaria *raiz);
-int numNos(NoArvoreBinaria *raiz);
-int altura(NoArvoreBinaria *raiz);
-int igual(NoArvoreBinaria *raiz);
+NoArvoreBinaria *criar();                                                   // Feito
+NoArvoreBinaria *insere(int v, NoArvoreBinaria *sae, NoArvoreBinaria *sad); // Feito
+int vazia(NoArvoreBinaria *raiz);                                           // Feito
+const char *toString(NoArvoreBinaria *raiz);                                // Feito
+int pertence(NoArvoreBinaria *raiz, int v);                                 // Feito
+int pares(NoArvoreBinaria *raiz);                                           // Feito
+int folhas(NoArvoreBinaria *raiz);                                          // Feito
+void imprimePre(NoArvoreBinaria *raiz);                                     // Feito
+void imprimeSim(NoArvoreBinaria *raiz);                                     // Feito
+void imprimePos(NoArvoreBinaria *raiz);                                     // Feito
+int numNos(NoArvoreBinaria *raiz);                                          // Feito
+int altura(NoArvoreBinaria *raiz);                                          // Feito
+int igual(NoArvoreBinaria *raiz1, NoArvoreBinaria *raiz2);
