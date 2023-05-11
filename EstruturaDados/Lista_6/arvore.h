@@ -22,4 +22,4 @@ void imprimeSim(NoArvoreBinaria *raiz);                                     // F
 void imprimePos(NoArvoreBinaria *raiz);                                     // Feito
 int numNos(NoArvoreBinaria *raiz);                                          // Feito
 int altura(NoArvoreBinaria *raiz);                                          // Feito
-int igual(NoArvoreBinaria *raiz1, NoArvoreBinaria *raiz2);
+int igual(NoArvoreBinaria *raiz1, NoArvoreBinaria *raiz2);                  // Feito

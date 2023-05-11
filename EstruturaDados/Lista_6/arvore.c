@@ -117,7 +117,15 @@ int altura(NoArvoreBinaria *raiz)
     return v2;
 }
 
-// Falta
 int igual(NoArvoreBinaria *raiz1, NoArvoreBinaria *raiz2)
 {
+    if (raiz1 == NULL && raiz2 == NULL)
+        return 1;
+    if (raiz1 == NULL || raiz2 == NULL || (raiz1->info != raiz2->info))
+        return 0;
+    int esq = igual(raiz1->sae, raiz2->sae);
+    int dir = igual(raiz1->sad, raiz2->sad);
+    if (dir == 1 && esq == 1)
+        return 1;
+    return 0;
 }

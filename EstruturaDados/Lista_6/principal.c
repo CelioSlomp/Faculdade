@@ -13,7 +13,7 @@ void main(void)
                             insere(4, NULL, NULL)),
                      insere(3,
 
-                            insere(5, NULL, NULL),
+                            insere(5, insere(7, NULL, NULL), NULL),
                             insere(6, NULL, NULL))
 
        );
@@ -51,7 +51,9 @@ void main(void)
        //  imprimeSim(raiz);
        //  imprimePos(raiz);
 
+       // Retorna um array de char da arvore
        // printf("\n%s", toString(raiz));
 
-       printf("%d", igual(raiz, raiz2));
+       // Verifica se é igual
+       // printf("%d", igual(raiz, raiz2));
 }
