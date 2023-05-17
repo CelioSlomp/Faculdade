@@ -19,7 +19,15 @@ int main()
     // printf("%d", arvv_pertence(a1, 5));
 
     // Imprime a arvore
-    arvv_imprime(a1);
+    // arvv_imprime(a1);
 
+    // Imprime altura da arvore
+    // printf("%d", arvv_altura(a1));
+
+    // Imprime quantos numeros pares tem
+    // printf("%d", arvv_pares(a1));
+
+    // Imprime numero de folhas
+    printf("%d", arvv_folhas(a1));
     return 0;
 }

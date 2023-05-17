@@ -47,8 +47,49 @@ void arvv_imprime(Arvv *a)
     }
     printf(">");
 }
-int arvv_altura(Arvv *a) {}
-int arvv_pares(Arvv *a) {}
-int arvv_folhas(Arvv *a) {}
-int arvv_ivual(Arvv *a1, Arvv *a2) {}
-Arvv *arvv_copia(Arvv *a) {}
+
+int arvv_altura(Arvv *a)
+{
+    int hmax = -1;
+    Arvv *no = a->prim;
+    while (no != NULL)
+    {
+        int h = arvv_altura(no);
+        if (h > hmax)
+            hmax = h;
+        no = no->prox;
+    }
+    return hmax + 1;
+}
+
+int arvv_pares(Arvv *a)
+{
+    int val = 0;
+    if (a == NULL)
+        return 0;
+    if (a->info % 2 == 0)
+        val++;
+    return (arvv_pares(a->prim) + arvv_pares(a->prox) + val);
+}
+
+int arvv_folhas(Arvv *a)
+{
+    int val = 0;
+    Arvv *no = a->prim;
+    if (a == NULL)
+        return 0;
+    while (no != NULL)
+    {
+        val = arvv_folhas(no);
+        no = no->prox;
+    }
+    return val + 1;
+}
+
+int arvv_igual(Arvv *a1, Arvv *a2)
+{
+}
+
+Arvv *arvv_copia(Arvv *a)
+{
+}

@@ -11,13 +11,13 @@ struct arvv
 typedef struct arvv Arvv;
 
 /* prot ́otipos das funcoes para operacoes nas arvores */
-Arvv *arvv_cria(int v);
-void arvv_insere(Arvv *a, Arvv *sa);
-Arvv *arvv_libera(Arvv *a);
-int arvv_pertence(Arvv *a, int n);
-void arvv_imprime(Arvv *a);
-int arvv_altura(Arvv *a);
-int arvv_pares(Arvv *a);
+Arvv *arvv_cria(int v);              // Feito
+void arvv_insere(Arvv *a, Arvv *sa); // Feito
+Arvv *arvv_libera(Arvv *a);          // Feito
+int arvv_pertence(Arvv *a, int n);   // Feito
+void arvv_imprime(Arvv *a);          // Feito
+int arvv_altura(Arvv *a);            // Feito
+int arvv_pares(Arvv *a);             // Feito
 int arvv_folhas(Arvv *a);
-int arvv_ivual(Arvv *a1, Arvv *a2);
+int arvv_igual(Arvv *a1, Arvv *a2);
 Arvv *arvv_copia(Arvv *a);
