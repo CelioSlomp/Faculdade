@@ -1,14 +1,5 @@
 from config import *
-'''
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-'''
+
 class Pessoa(db.Model):
     __tablename__ = 'pessoa'
     id = db.Column(db.Integer, primary_key=True)

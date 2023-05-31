@@ -1,16 +1,5 @@
 from classes import *
 
-'''
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-PRECISA TERMINAR
-'''
-
 def main():
     if os.path.exists(arquivobd):
         os.remove(arquivobd)
