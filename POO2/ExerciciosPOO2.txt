@@ -18,11 +18,11 @@ Os dois programas devem estar disponíveis na sua resposta (o seu programa java 
 -------------------------------------------------------------
 
 4) Exercício E8: criar classes persistentes em python/flask_sqlalchemy ou sqalchemy "puro" usando os recursos demonstrados. Sugestões:
-a) agregação e composição
-b) herança
-c) usar tipo de dados data
-d) conectar em sqlite e mysql
-e) usar lista reversa
+a) agregação e composição       OK
+b) herança                      OK
+c) usar tipo de dados data      OK
+d) conectar em sqlite e mysql   
+e) usar lista reversa           
 f) nos testes, fazer as 4 operações nos objetos: incluir, consultar (todos e com filtro), alterar e excluir.
 
 -------------------------------------------------------------

@@ -13,7 +13,7 @@ class Pessoa(db.Model):
     __tablename__ = 'pessoa'
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(254))
-    dataNas = db.Column(db.String(254))
+    dataNas = db.Column(db.Date)
     altura = db.Column(db.Integer)
     peso = db.Column(db.Integer)
     type = db.Column(db.String(50))
@@ -24,14 +24,14 @@ class Pessoa(db.Model):
         print(f"Olá, sou {self.nome} e nasci em {self.dataNas}.")
 
 
-class Construtor(Pessoa):
-    __mapper_args__ = {'polymorphic_identity':'construtor'}
+class Mecanico(Pessoa):
+    __mapper_args__ = {'polymorphic_identity':'mecanico'}
     areaTrab = db.Column(db.String(254))
     confiab = db.Column(db.String(254))
     empresa = db.Column(db.String(254))
 
-    #def construirCarro(self, nomeC, anoC, velmaxC):
-    #    return Carro(nome=nomeC, ano=anoC, velMax=velmaxC, marca=empresa, construtor=self.id)
+    def construirCarro(self, nomeC, anoC, velmaxC):
+        return Carro(nome=nomeC, ano=anoC, velMax=velmaxC, marca=self.empresa, mecanico=self)
 
 
 class Carro(db.Model):
@@ -40,8 +40,8 @@ class Carro(db.Model):
     ano = db.Column(db.Integer)
     velMax = db.Column(db.Integer)
     marca = db.Column(db.String(254))
-    construtor_id = db.Column(db.Integer, db.ForeignKey(Construtor.id), nullable=False)
-    construtor = db.relationship("Construtor")
+    mecanico_id = db.Column(db.Integer, db.ForeignKey(Mecanico.id), nullable=False)
+    mecanico = db.relationship("Mecanico")
     type = db.Column(db.String(50))
     __mapper_args__ = {'polymorphic_identity':'carro',
                        'polymorphic_on':type}
