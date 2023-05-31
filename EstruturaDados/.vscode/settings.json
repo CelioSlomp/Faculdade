@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "arvore.h": "c",
-        "arvv.h": "c"
+        "arvv.h": "c",
+        "arvore_busca_binaria.h": "c"
     }
 }
