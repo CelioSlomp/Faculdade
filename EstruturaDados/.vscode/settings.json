@@ -3,6 +3,8 @@
         "stdio.h": "c",
         "arvore.h": "c",
         "arvv.h": "c",
-        "arvore_busca_binaria.h": "c"
+        "arvore_busca_binaria.h": "c",
+        "tabela_hash.h": "c",
+        "stdlib.h": "c"
     }
 }
