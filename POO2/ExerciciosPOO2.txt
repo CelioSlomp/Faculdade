@@ -1,29 +1,4 @@
-4) exercício E2: criar três classes (1 herança, 1 agregação ou composição e 1 classe simples) com atributos e métodos;
-a) elaborar código que inspeciona as classes o melhor possível: exibir atributos e métodos, executar métodos, etc
-b) ao terminar, compartilhar o link de acesso a seu código (preferência: repositório)
-c) baixar os códigos de outros colegas, tentar usar seu código de inspeção para exibir informações dos códigos dos outros
-
--------------------------------------------------------------
-
-6) Exercício E6:
-a) criar uma classe em Java, com pelo menos um método e dois atributos
-b) fazer a geração do arquivo .jar (implantável); fazer a documentação do conteúdo do arquivo .jar (classe, métodos, atributos)
-c) criar um programa em java que utilize o .jar que outro colega fez
-Os dois programas devem estar disponíveis na sua resposta (o seu programa java e o .jar que você utilizou, referenciado)
-
--------------------------------------------------------------
-
 10) Exercício E7: criar uma classe persistente no java usando jdbc ou hibernate (sugestão do momento: usar mv7hib)
-
--------------------------------------------------------------
-
-4) Exercício E8: criar classes persistentes em python/flask_sqlalchemy ou sqalchemy "puro" usando os recursos demonstrados. Sugestões:
-a) agregação e composição       OK
-b) herança                      OK
-c) usar tipo de dados data      OK
-d) conectar em sqlite e mysql   
-e) usar lista reversa           
-f) nos testes, fazer as 4 operações nos objetos: incluir, consultar (todos e com filtro), alterar e excluir.
 
 -------------------------------------------------------------
 
