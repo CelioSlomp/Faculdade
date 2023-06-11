@@ -1,6 +1,59 @@
+1) Algumas leituras sobre java:
+* Versões do java:
+https://www.java.com/releases/
+* Suporte às versões do java:
+https://endoflife.date/java
+* Openjdk:
+https://openjdk.java.net/projects/jdk/
+* Detalhe sobre o número de versão de java 1.8 (ver final da página, tópico Equivalences):
+https://www.oracle.com/java/technologies/javase/jdk8-naming.html
+* Matriz de compatibilidade do hibernate:
+https://hibernate.org/orm/releases/
+2) observar mapeamento de classe e tabela por meio de XML:
+https://github.com/hvescovi/dw2ed/blob/main/bd/java/hibernate/src/hibernate.hbm.xml
+3) projeto jdbc_netbeans_01
+https://gitlab.com/hvescovi/prog23/-/tree/main/bd/java/jdbc_netbeans_01
+a) executar exemplo1.DisplayAuthors
+vai ocorrer um erro de "Access denied for user ...", informe o IP negado para o professor
+b) após liberação do IP, executar novamente o programa de teste
+c) executar os outros programas
+4) Configurar dbeaver para acesso:
+host: 62.77.153.140, bd: hylsonco_poo2_2023_1, user: hylsonco_poo2, senha: a9N2XYifc2023
+5) projeto hibernate_netbeans_01
+CANCELADO: NÃO ESTÁ FUNCIONANDO :-(
+https://gitlab.com/hvescovi/prog23/-/tree/main/bd/java/hibernate_netbeans_01
+a) configurar driver mysql (adicionar .jar)
+clique botão direito no projeto > propriedades > Libraries >
+b) configurar biblioteca hibernate (adicionar vários .jar)
+https://github.com/hvescovi/dw2ed/blob/main/bd/java/hibernate-jars-required.zip
+c) observar classes
+d) ALTERAR o nome das tabelas, incluindo seu nome do prefixo
+onde não houver @Table(name="xxx"), você insere um prefixo com seu nome :-)
+e) executar a criação das tabelas
+f) executar os testes das classes
+g) testar outros métodos de criação das tabelas relacionadas (single_table, table_per_class)
+6) projeto mv7hib
+https://gitlab.com/hvescovi/prog23/-/tree/main/bd/java/mv7hib
+a) alterar nome das tabelas (inserir prefixo com seu nome)
+b) executar criação das tabelas
+c) executar teste
+7) projeto com sqlite
+https://gitlab.com/hvescovi/prog23/-/tree/main/bd/java/sqlite
+a) verificar que funciona sem alteração de dependência; o que houve? => Referência relativa
+8) verificar possibilidade de executar no mysql local (máquina local)
+9) verificar possibilidade de executar no servidor do notebook do professor (opcional)
 10) Exercício E7: criar uma classe persistente no java usando jdbc ou hibernate (sugestão do momento: usar mv7hib)
 
 -------------------------------------------------------------
+
+1) verificar funcionamento do programa de paginação:
+https://gitlab.com/hvescovi/prog23/-/tree/main/bd/python/pagination
+2) importar arquivo maior:
+https://www.dropbox.com/s/p98p1isjayj37wh/archive.zip?dl=0
+OBSERVAÇÃO: no arquivo .csv, o primeiro campo está SEM NOME; no programa exemplo, o campo está chamado "n". Utilizar um campo "sem nome" dificulta o mapeamento. Se você quiser tentar, boa sorte, mas a ação recomendada é editar o arquivo .csv e renomear o primeiro campo para "n". O arquivo é grande, logo a sugestão é usar o "vim" ou similar.
+3) encontrar o registro número 10.000 e listar os 5 registros na sequência (10.000 a 10.004)
+4) verificar funcionamento do programa de armazenamento de BD orientado a objetos:
+https://gitlab.com/hvescovi/prog23/-/tree/main/bd/python/zodb
 
 5) Exercício E9:
 a) elaborar um programa que insira todos os registros do banco de dados do passo 2 em um novo banco de dados orientado a objetos
@@ -8,3 +61,4 @@ b) comparar os tamanhos dos dois bancos de dados (sqlite e ZODB)
 c) buscar no ZODB o registro 10.000; e listar os 5 registros "seguintes"
 d) comparar os tempos de busca de registro no dos bancos de dados; pode usar o comando "time python3 programa.py"
 6) quem for desenvolver o sistema em python, observar peculiaridades do python:
+https://github.com/hvescovi/programar2020/blob/master/99-fundamentos/python/peculiaridades.py
