@@ -1,0 +1,3 @@
+var = 0xffff
+for i in range(0x0, var, 0xf):
+    print(i)
