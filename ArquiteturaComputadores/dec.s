@@ -10,6 +10,8 @@
 
 .data
 x: .short 0
+varPrint: .short 0
+
 
 # executable code location
 .text 				   
@@ -17,20 +19,27 @@ x: .short 0
 .globl _start
 
 # entry point
-_start:				    
-    mov $'0', %al
+_start:
 
-    mov $0x32, x
     mov x, %al
-
     mov $0x32, %al
 
-    add $3, %al
+
+
+
+    #mov $'0', %al
+
+    #mov $0x32, x
+    #mov x, %al
+
+    #mov $0x32, %al
+
+    #add $3, %al
     
+
+    # print %al
     movb $0x0e, %ah
     int $0x10
-
-    #push x(,1)
 
     
     # mov to 510th byte from 0 pos
