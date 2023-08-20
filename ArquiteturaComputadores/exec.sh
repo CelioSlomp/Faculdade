@@ -1,4 +1,4 @@
 echo "Compilar."
 make
 echo "Compilado. Rodando Bochs."
-Bochs/bochs/bochs
+../../Bochs/bochs/bochs

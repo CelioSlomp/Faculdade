@@ -1,10 +1,11 @@
 # Author: Éder Augusto Penharbel
 
 .PHONY: clean image
-SOURCE = ques12
+#SOURCE = ques12
 #SOURCE = ques34
 #SOURCE = ques5
-#SOURCE = dec
+SOURCE = dec
+#SOURCE = teste
 
 all: image
 
