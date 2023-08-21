@@ -18,7 +18,8 @@ X   oposto(v,e)
 '''
 
 class Grafo:
-    def __init__(self):
+    def __init__(self, nome):
+        self.nome = nome
         self.vertices = []
         self.arestas = []
 
@@ -111,6 +112,11 @@ class Vertice:
     def __init__(self, nome):
         self.nome = nome
         self.arestas = []
+        self.estado = ""
+        self.predec = None
+        self.dist = -1
+
+
 
     def adj(self):
         verts = []
@@ -150,7 +156,7 @@ class Aresta:
 
 
 def main():
-    grafo = Grafo()
+    grafo = Grafo("g1")
     grafo.adicionarVertice("v1")
     grafo.adicionarVertice("v2")
     grafo.adicionarVertice("v3")
