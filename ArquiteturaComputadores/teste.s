@@ -9,11 +9,8 @@
 # entry point
 _start:				    
 
-    # character to print
-    # Coisas declaradas antes de iniciar o loop
     mov $0x34, %al
 
-    # Incrementa 1 na variavel x
     mov $0x36, %al
 
     movb $0x0e, %ah
