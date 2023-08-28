@@ -1,47 +1,34 @@
 '''
-Funcoes para adicionar:
 
-X   getOrdem
-X   getTamanho
-X   Vertices
-X   Arestas
-X   insereV
-X   removeV(v)
-X   insereA(u, v)
-X   removeA(e)
-X   adj(v)
-X   getA(u, v)
-X   grau(v)
-X   verticesA(e)
-X   oposto(v,e)
+Este código é para passar as listas para dicionario.
+o Grafos.py é a mesma coisa, só que utilizando listas.
 
 '''
 
 class Grafo:
     def __init__(self, nome):
         self.nome = nome
-        self.vertices = []
-        self.arestas = []
+        self.vertices = {}
+        self.arestas = {}
 
     def adicionarVertice(self, nome):
-        for i in self.vertices:
-            if i.nome == nome:
-                return "Ja existe esse nome"
-        self.vertices.append(Vertice(nome))
-        return "Adicionado com sucesso"
+        if nome in self.vertices:
+            return False
+        tmp = Vertice(nome)
+        self.vertices[nome] = tmp
+        return tmp
     
     def acharVertice(self, nome):
-        for i in self.vertices:
-            if i.nome == nome:
-                return i
-        return "Vertice nao encontrado"
+        if nome in self.vertices:
+            return self.vertices[nome]
+        return False
     
     def adicionarAresta(self,nome, v1, v2):
-        for i in self.arestas:
-            if i.nome == nome:
-                return "Ja existe essa aresta"
-        self.arestas.append(Aresta(nome, v1, v2))
-        return "Adicionado com sucesso"
+        if nome in self.arestas:
+            return False
+        tmp = Aresta(nome, v1, v2)
+        self.arestas[nome] = tmp
+        return tmp
 
     def getOrdem(self):
         return len(self.vertices)
@@ -56,53 +43,50 @@ class Grafo:
         return self.arestas
     
     def removeAresta(self, nome):
-        for i in self.arestas:
-            if i.nome == nome:
-                if i.v1 == i.v2:
-                    v1 = i.v1
-                    v1.arestas.remove(i)
-                else:
-                    v1 = i.v1
-                    v2 = i.v2
-                    v1.arestas.remove(i)
-                    v2.arestas.remove(i)
-                self.arestas.remove(i)
-                return "Aresta removida"
-        return "Aresta não encontrada"
+        if nome in self.arestas:
+            tmp = self.arestas[nome]
+            if tmp.v1 == tmp.v2:
+                tmp.v1.arestas.pop(nome)
+            else:
+                tmp.v1.arestas.pop(nome)
+                tmp.v2.arestas.pop(nome)
+            self.arestas.pop(nome)
     
     def removeVertice(self, nome):
         nomeArestas = []
-        
-        for i in self.vertices:
-            if i.nome == nome:
-                vertice = i
-                for j in i.arestas:
-                    nomeArestas.append(j.nome)
-        for i in nomeArestas:
+        if nome not in self.vertices:
+            return False
+        tmp = self.vertices[nome]
+        x = []
+        for i in tmp.arestas:
+            x.append(i)
+
+        for i in x:
             self.removeAresta(i)
-        self.vertices.remove(vertice)
+        self.vertices.pop(nome)        
+        return True
 
     def getA(self, v1, v2):
         for i in self.arestas:
-            if (i.v1 == v1 and i.v2 == v2) or \
-               (i.v1 == v2 and i.v2 == v1):
-                return i
+            # d é um objeto aresta
+            d = self.arestas[i]
+            if (d.v1 == v1 and d.v2 == v2) or \
+               (d.v1 == v2 and d.v2 == v1):
+                return d
         return None
 
     def verticesA(self, nome):
-        for i in self.arestas:
-            if i.nome == nome:
-                return (i.v1, i.v2)
+        if nome in self.arestas:
+            aresta = self.arestas[nome]
+            return (aresta.v1, aresta.v2)
         return None
 
     def oposto(self, nomVert, nomArest):
-        for i in self.arestas:
-            if i.nome == nomArest:
-                ares = i
-        for i in self.vertices:
-            if i.nome == nomVert:
-                vert = i
-        
+        if nomVert in self.vertices:
+            vert = self.vertices[nomVert]
+
+        if nomArest in self.arestas:
+            ares = self.arestas[nomArest]
         if ares.v1 == vert:
             return ares.v2
         return ares.v1
@@ -111,30 +95,26 @@ class Grafo:
 class Vertice:
     def __init__(self, nome):
         self.nome = nome
-        self.arestas = []
+        self.arestas = {}
         self.estado = ""
         self.predec = None
         self.dist = -1
 
-
-
     def adj(self):
         verts = []
+
         for i in self.arestas:
+            i = self.arestas[i]
             if i.v1 == self:
                 verts.append(i.v1)
             else:
                 verts.append(i.v2)
-        print("Vertices adjacentes a", self.nome)
-        for i in verts:
-            print(i.nome, end=" ")
-        print("")
         return verts
 
     def grau(self):
         grau = 0
-        print(self.arestas)
         for i in self.arestas:
+            i = self.arestas[i]
             if (i.v1 == self and i.v2 == self):
                 grau += 2
             else:
@@ -149,35 +129,27 @@ class Aresta:
         self.nome = nome
         self.vertices = (v1, v2)
         if v1!=v2:
-            v1.arestas.append(self)
-            v2.arestas.append(self)
+            v1.arestas[nome] = self
+            v2.arestas[nome] = self
         else:
-            v1.arestas.append(self)
+            v1.arestas[nome] = self
 
 
 def main():
     grafo = Grafo("g1")
-    grafo.adicionarVertice("v1")
-    grafo.adicionarVertice("v2")
-    grafo.adicionarVertice("v3")
+    v1 = grafo.adicionarVertice("v1")
+    v2 = grafo.adicionarVertice("v2")
+    v3 = grafo.adicionarVertice("v3")
     
-    v1 = grafo.vertices[0]
-    v2 = grafo.vertices[1]
-    v3 = grafo.vertices[2]
+    a1 = grafo.adicionarAresta("a1", v1, v2)
+    a2 = grafo.adicionarAresta("a2", v2, v3)
 
-    grafo.adicionarAresta("a1", v2, v1)
-    grafo.adicionarAresta("a2", v2, v3)
-    print(len(v2.arestas))
-    #grafo.removeVertice("v1")
-    #grafo.removeAresta("a1")
-    print(len(v2.arestas))
+    # grafo.removeVertice('v2')
+    # print(v1.arestas)
 
-    print(v2.adj())
+    print(v2.grau())
 
-    #print(v3.grau())
-    #print(grafo.verticesA("a2"))
-    #print(v1)
-    #print(grafo.oposto("v2", "a1"))
+
 
 if __name__ == "__main__":
     main()
