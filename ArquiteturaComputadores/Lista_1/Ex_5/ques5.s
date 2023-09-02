@@ -14,19 +14,17 @@ _start:
     jmp loop_start
 
 loop_start:
-
     # reseta o ah
     mov $0, %ah
     int $0x16
 
-    mov %ah, %bh
-
-    cmpb $'e', %bh
-    je loop_x
-
     # Print
     movb $0x0e, %ah
     int $0x10
+
+    cmpb $'e', %al
+    je loop_x
+
     jmp loop_start
 
 loop_x:
@@ -34,14 +32,13 @@ loop_x:
     mov $0, %ah
     int $0x16
 
-    mov %ah, %bh
-
-    cmpb $'x', %bh
-    je loop_i
-
     # Print
     movb $0x0e, %ah
     int $0x10
+
+    cmpb $'x', %al
+    je loop_i
+
     jmp loop_start
 
 loop_i:
@@ -49,14 +46,13 @@ loop_i:
     mov $0, %ah
     int $0x16
 
-    mov %ah, %bh
-
-    cmpb $'i', %bh
-    je loop_t
-
     # Print
     movb $0x0e, %ah
     int $0x10
+
+    cmpb $'i', %al
+    je loop_t
+
     jmp loop_start
 
 loop_t:
@@ -64,21 +60,16 @@ loop_t:
     mov $0, %ah
     int $0x16
 
-    mov %ah, %bh
-
-    cmpb $'t', %bh
-    je loop_fim
-
     # Print
     movb $0x0e, %ah
     int $0x10
+
+    cmpb $'t', %al
+    je loop_fim
+
     jmp loop_start
 
 loop_fim:
-
-    # Print
-    movb $0x0e, %ah
-    int $0x10
 
     # mov to 510th byte from 0 pos
     . = _start + 510	    
