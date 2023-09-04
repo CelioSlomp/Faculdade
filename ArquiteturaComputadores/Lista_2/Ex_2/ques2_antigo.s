@@ -9,6 +9,7 @@
 _start:				    
 
     mov $0, %cx
+    mov $0, %bh
 
 loop_start:
 
@@ -42,16 +43,12 @@ fim:
     
     dec %cx
     
-    # sub $0x61, %ax
     # mov $0, %bl
-    popw %ax
+    popw %bx
+
+    mov %bx, %ax
 
     imul $10, %dx
-    
-    mov %ax, %bx
-    sub $0x0e, %bh
-    # mov %bx, %ax
-
 
     jmp fim
 
