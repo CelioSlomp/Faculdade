@@ -1,7 +1,7 @@
 # Author: Éder Augusto Penharbel
 
 .PHONY: clean image
-SOURCE = ques1
+SOURCE = ques1_call
 
 all: image
 

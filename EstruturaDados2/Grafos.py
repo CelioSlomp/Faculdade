@@ -99,6 +99,8 @@ class Vertice:
         self.estado = ""
         self.predec = None
         self.dist = -1
+        self.tempoAbertura = 0
+        self.tempoFechamento = 0
 
     def adj(self):
         verts = []
@@ -106,9 +108,9 @@ class Vertice:
         for i in self.arestas:
             i = self.arestas[i]
             if i.v1 == self:
-                verts.append(i.v1)
-            else:
                 verts.append(i.v2)
+            else:
+                verts.append(i.v1)
         return verts
 
     def grau(self):

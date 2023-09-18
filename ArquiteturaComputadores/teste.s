@@ -9,9 +9,10 @@
 # entry point
 _start:				    
 
-    mov $0x34, %al
+    mov $5, %bx
+    mov $8, %cx
 
-    mov $0x36, %al
+    imul %cx, %bx
 
     movb $0x0e, %ah
     int $0x10

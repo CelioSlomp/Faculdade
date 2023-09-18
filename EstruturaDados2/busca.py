@@ -1,33 +1,62 @@
-from Grafos_listas import Grafo, Vertice, Aresta
+from Grafos import Grafo, Vertice, Aresta
 
-def buscaProfundidade():
-    pass
+class OperacoesGrafo:
+    def __init__(self, grafo: Grafo):
+        self.grafo = grafo
+        self.nome = grafo.nome
 
-def buscaLargura(grafo: Grafo, vertIn: Vertice):
-    for v in grafo.vertices:
-        v.estado = "NV"
-        v.predec = None
-        v.dist = 0
+    def buscaProfundidade(self, vertIn: str):
+        if not vertIn in self.grafo.vertices:
+            return None
+        vertIn = self.grafo.vertices[vertIn]
+        for v in self.grafo.vertices:
+            self.grafo.vertices[v].estado = "NV"
+            self.grafo.vertices[v].predec = None
+        
+        tempo = 0
+        self.visitaVertice(vertIn, tempo)
 
-    vertIn.dist = 0
-    vertIn.estado = "V"
-    f = []
-    f.append(vertIn)
-    while len(f) != 0:
-        adjacentes = f[0].adj()
-        for i in adjacentes:
+    def visitaVertice(self, vertIn: Vertice, tempo: int):
+        vertIn.estado = "V"
+        tempo = tempo + 1
+        vertIn.tempoAbertura = tempo
+        for i in vertIn.adj():
             if i.estado == "NV":
-                f.append(i)
-                i.estado = "V"
-                i.predec = f[0]
-                i.dist = f[0].dist + 1
+                i.predec = vertIn
+                tempo = self.visitaVertice(i, tempo)
+        vertIn.estado = "E"
+        tempo = tempo + 1
+        vertIn.tempoFechamento = tempo
+        print(vertIn.nome, vertIn.tempoAbertura, vertIn.tempoFechamento)
+        return tempo
 
-                if i.nome == "f":
-                    print(i.dist)
-                    print("Achou")
-        f[0].estado = "E"
-        f.remove(f[0])
+    def buscaLargura(self, vertIn: str):
+        if not vertIn in self.grafo.vertices:
+            return None
+        vertIn = self.grafo.vertices[vertIn]
+        for v in self.grafo.vertices:
+            self.grafo.vertices[v].estado = "NV"
+            self.grafo.vertices[v].predec = None
+            self.grafo.vertices[v].dist = 0
 
+        vertIn.dist = 0
+        vertIn.estado = "V"
+        f = []
+        f.append(vertIn)
+        while len(f) != 0:
+            adjacentes = f[0].adj()
+            for i in adjacentes:
+                if i.estado == "NV":
+                    f.append(i)
+                    i.estado = "V"
+                    i.predec = f[0]
+                    i.dist = f[0].dist + 1
+
+                    if i.nome == "f":
+                        print(i.dist)
+                        print("Achou")
+            f[0].estado = "E"
+            f.remove(f[0])
 
 def criarGrafo(nome):
     grafo = Grafo(nome)
@@ -46,7 +75,7 @@ def criarGrafo(nome):
     vert = {}
 
     for i in grafo.vertices:
-        vert[i.nome] = i
+        vert[i] = grafo.vertices[i]
 
     grafo.adicionarAresta('a1', vert['a'], vert['b'])
     grafo.adicionarAresta('a2', vert['c'], vert['b'])
@@ -61,28 +90,23 @@ def criarGrafo(nome):
     grafo.adicionarAresta('a10', vert['i'], vert['k'])
     grafo.adicionarAresta('a11', vert['i'], vert['h'])
     
-
     return grafo
 
 def main():
     grafo = criarGrafo("g1")
 
-    verti = {}
-    arest = {}
+    opgrafo = OperacoesGrafo(grafo)
+    opgrafo.buscaLargura('a')
+    
+    # opgrafo.buscaProfundidade('a')
+    
+    # grafo.adicionarAresta('bla', verti['a'],verti['a'])
+    # grafo.adicionarAresta('bla1', verti['a'],verti['a'])
+    # grafo.adicionarAresta('bla2', verti['a'],verti['a'])
+    # grafo.adicionarAresta('bla3', verti['a'],verti['a'])
+    # grafo.adicionarAresta('bla4', verti['a'],verti['a'])
 
-    for i in grafo.vertices:
-        verti[i.nome] = i
-    for i in grafo.arestas:
-        arest[i.nome] = i
-
-    # buscaLargura(grafo, verti['a'])
-    grafo.adicionarAresta('bla', verti['a'],verti['a'])
-    grafo.adicionarAresta('bla1', verti['a'],verti['a'])
-    grafo.adicionarAresta('bla2', verti['a'],verti['a'])
-    grafo.adicionarAresta('bla3', verti['a'],verti['a'])
-    grafo.adicionarAresta('bla4', verti['a'],verti['a'])
-
-    print(verti['a'].grau())
+    print(grafo.vertices['a'].grau())
 
 if __name__ == "__main__":
     main()

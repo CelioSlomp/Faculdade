@@ -57,7 +57,7 @@ leitura_teclado_end:
 
 loop_conversao:    
     cmp $0, %cl
-    je loop_end
+    je verif_zero
     
     # Pegar digito
     pop %ax
@@ -95,6 +95,78 @@ loop_conversao:
     # decrementa cl para o loop
     dec %cl
     jmp loop_conversao
+
+verif_zero:
+    # imprime espaco
+    # mov $0x0a, %al
+    # movb $0xe, %ah
+    # int $0x10
+    movw $75, %cx
+    call print_espaco
+
+    movw $0xf00, %bx
+    movw (%bx), %ax
+    sub $1, %ax
+    movw $0xf00, %bx
+    movw %ax, (%bx)
+    movw (%bx), %ax
+
+    cmp $0, %ax
+    je loop_end
+
+    mov $10000, %cx
+
+    mov $10, %bx
+
+    jmp print_num
+
+print_espaco:
+
+    mov $0x20, %al
+    movb $0xe, %ah
+    int $0x10
+
+    dec %cx
+
+    cmp $0, %cx
+    jg print_espaco
+
+    ret
+
+print_num:
+    # zerar dx devido a dx fazer parte da conta
+    mov $0, %dx
+    # Dividir o numero/resto
+    div %cx
+    # empilhar o resto
+    pushw %dx
+
+    # Converter para ascii
+    add $0x30, %al
+
+    # imprimir
+    movb $0xe, %ah
+    int $0x10
+
+    # zerar dx devido a dx fazer parte da conta
+    mov $0, %dx
+
+    # comparar se o numero e zero
+    cmp $1, %cx
+    je verif_zero
+    
+    # mover potencia para ax
+    movw %cx, %ax
+    # Calcular nova potencia
+    div %bx
+    # armazenar nova potencia em cx
+    movw %ax, %cx
+
+    # restaurar resto para ax
+    popw %ax
+    
+    jmp print_num
+
 
 loop_end:
     

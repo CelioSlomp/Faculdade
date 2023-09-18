@@ -1,7 +1,7 @@
 # Author: Éder Augusto Penharbel
 
 .PHONY: clean image
-SOURCE = printDecimal
+SOURCE = teste
 
 all: image
 
