@@ -98,11 +98,12 @@ loop_conversao:
 
 verif_zero:
     # imprime espaco
+    # mov $0, %dl
     # mov $0x0a, %al
-    # movb $0xe, %ah
-    # int $0x10
-    movw $75, %cx
-    call print_espaco
+    movb $0x02, %ah
+    int $0x10
+    # movw $75, %cx
+    # call print_espaco
 
     movw $0xf00, %bx
     movw (%bx), %ax
@@ -120,18 +121,18 @@ verif_zero:
 
     jmp print_num
 
-print_espaco:
+    # print_espaco:
 
-    mov $0x20, %al
-    movb $0xe, %ah
-    int $0x10
+    # mov $0x20, %al
+    # movb $0xe, %ah
+    # int $0x10
 
-    dec %cx
+    # dec %cx
 
-    cmp $0, %cx
-    jg print_espaco
+    # cmp $0, %cx
+    # jg print_espaco
 
-    ret
+    # ret
 
 print_num:
     # zerar dx devido a dx fazer parte da conta
