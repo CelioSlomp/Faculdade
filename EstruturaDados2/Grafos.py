@@ -151,7 +151,5 @@ def main():
 
     print(v2.grau())
 
-
-
 if __name__ == "__main__":
     main()

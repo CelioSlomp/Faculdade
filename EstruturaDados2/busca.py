@@ -51,14 +51,35 @@ class OperacoesGrafo:
                     i.estado = "V"
                     i.predec = f[0]
                     i.dist = f[0].dist + 1
-
-                    if i.nome == "f":
-                        print(i.dist)
-                        print("Achou")
             f[0].estado = "E"
             f.remove(f[0])
 
+    def conexidade(self):
+        for v in self.grafo.vertices:
+            self.grafo.vertices[v].estado = "NV"
+            self.grafo.vertices[v].predec = None
+
+        tempo = 0
+        Ncc = 0
+
+        for v in self.grafo.vertices:
+            v = self.grafo.vertices[v]
+            if v.estado == "NV":
+                Ncc += 1
+                tempo += self.visitaVertice(v, tempo)
+        
+        if Ncc > 1:
+            print("O grafo não é conexo.")
+        else:
+            print("Grafo conexo")
+
+
 def criarGrafo(nome):
+
+    '''
+    Funcao criada para criar um grafo
+    '''
+
     grafo = Grafo(nome)
     grafo.adicionarVertice("a")
     grafo.adicionarVertice("b")
@@ -93,20 +114,19 @@ def criarGrafo(nome):
     return grafo
 
 def main():
+    # Instancia um grafo e um objeto
+    # para poder operar esse grafo.
     grafo = criarGrafo("g1")
-
     opgrafo = OperacoesGrafo(grafo)
-    opgrafo.buscaLargura('a')
     
+    # Busca em largura
+    # opgrafo.buscaLargura('h')
+    
+    # Busca em profundidade
     # opgrafo.buscaProfundidade('a')
     
-    # grafo.adicionarAresta('bla', verti['a'],verti['a'])
-    # grafo.adicionarAresta('bla1', verti['a'],verti['a'])
-    # grafo.adicionarAresta('bla2', verti['a'],verti['a'])
-    # grafo.adicionarAresta('bla3', verti['a'],verti['a'])
-    # grafo.adicionarAresta('bla4', verti['a'],verti['a'])
-
-    print(grafo.vertices['a'].grau())
+    # Testa a conexidade do grafo
+    # opgrafo.conexidade()
 
 if __name__ == "__main__":
     main()
