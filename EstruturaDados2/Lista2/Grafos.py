@@ -1,10 +1,3 @@
-'''
-
-Este código é para passar as listas para dicionario.
-o Grafos.py é a mesma coisa, só que utilizando listas.
-
-'''
-
 class Grafo:
     def __init__(self, nome):
         self.nome = nome
