@@ -20,7 +20,7 @@ _start:
     # são as de 0x80 até 0x3ff.
     # OBS.: cada interrupcao possui 4 bytes, ou seja, ao passar a
     # int 0x80, para poder enderecar precisa ser passado 0x200
-    # que é 80 * 4
+    # que é 0x80 * 4
 
     # move 200 ao %bx
     movw $0x200, %bx
