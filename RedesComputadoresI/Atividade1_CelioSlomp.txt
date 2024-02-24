@@ -1,0 +1,65 @@
+Como a largura de banda da rede
+impacta diretamente no desempenho de serviços baseados na nuvem e na
+colaboração em ambientes corporativos?
+
+R.: A largura da banda é muito importante nos ambientes corporativos, pelo fato de
+que ela afeta diretamente no tempo em que se faz download e upload de arquivos/pastas
+no geral. Lembrando também que tempo é dinheiro.
+
+------------------------------------------------------------------------------------
+Quais são os principais desafios de
+segurança associados à implementação de políticas BYOD em ambientes
+empresariais e como podem ser mitigados?
+
+R.: Os maiores problemas são os de possíveis vazamentos de dados que podem acontecer.
+Uma política que pode ser considerada é a da utilização de VPNs ou, de forma mais radical,
+a proibição de ferramentas pessoais no serviço.
+
+------------------------------------------------------------------------------------
+Como as nuvens privadas diferem das
+nuvens públicas em termos de arquitetura, controle e segurança, e em que
+situações uma é mais adequada que a outra?
+
+R.:
+
+------------------------------------------------------------------------------------
+De que maneira as nuvens híbridas
+oferecem uma solução mais flexível para empresas em comparação com modelos de
+nuvem exclusivamente privados ou públicos?
+R.:
+
+------------------------------------------------------------------------------------
+Como a computação em nuvem
+contribui para a eficiência e escalabilidade dos data centers modernos,
+considerando aspectos como virtualização e provisionamento dinâmico?
+R.:
+
+------------------------------------------------------------------------------------
+Quais são os principais protocolos
+e tecnologias envolvidos na implementação de redes de tecnologia residencial
+inteligente e como elas podem se integrar a ambientes de nuvem?
+R.:
+
+------------------------------------------------------------------------------------
+Em que medida as redes powerline
+podem ser consideradas uma alternativa viável para a conexão de dispositivos em
+ambientes onde a infraestrutura de rede tradicional é desafiadora?
+R.:
+
+------------------------------------------------------------------------------------
+Quais são os principais desafios de
+segurança enfrentados por provedores de Internet Sem Fio (WISP) ao oferecerem
+serviços em ambientes urbanos densos e como eles podem ser superados?
+R.:
+
+------------------------------------------------------------------------------------
+Como a arquitetura de rede pode
+influenciar a colaboração eficaz entre diferentes departamentos de uma
+organização, especialmente em ambientes distribuídos geograficamente?
+R.:
+
+------------------------------------------------------------------------------------
+Qual o
+papel da rede tolerante a falhas na garantia da continuidade dos serviços em
+ambientes críticos, como data centers e redes de infraestrutura essencial?
+R.:
