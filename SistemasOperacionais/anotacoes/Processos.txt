@@ -1,0 +1,117 @@
+2.1 -------------------------
+2.1 ------------------------- Processos
+2.1 ------------------------- Processos
+2.1 -------------------------
+
+
+2.1.1 -----------------------
+O sistema operacional possui níveis de prioridade.
+Dado o exemplo da costura de uma roupa:
+Você vai costurando a roupa até certo momento onde você fura o seu dedo
+com a agulha. Quando você sente seu dedo furado, você coloca primeiro um
+band-aid e então volta a costurar a roupa. Lembrando de parar o processo
+inicial (costurar) para parar o sangramento (dedo furado) e então voltar
+ao processo inicial que tinha sido parado. Sendo assim, o dedo furado tem
+mais prioridade que a costura da roupa.
+Neste caso, a costura e o dedo furado são processos, entretando, o
+programa é a ideia principal (custurar x recuperar dedo furado)
+
+2.1.2 -----------------------
+No UNIX, para poder criar um novo processo, é necessário dar fork.
+
+2.1.3 -----------------------
+Um processo só termina (normalmente) por um dos 4 a seguir:
+1. Saída normal (voluntária).
+2. Erro fatal (involuntário).
+3. Saída por erro (voluntária).
+4. Morto por outro processo (involuntário). 
+
+A maioria deles termina por conta de que fizeram aquilo que era para
+ter sido feito.
+
+2.1.4 -----------------------
+O processo pai pode criar outros processos, nos quais chamamos de processos
+filhos, que também podem criar outros processos filhos, etc.
+No UNIX, um processo, juntamente com seus filhos, criam um grupo de processos.
+Quando o teclado envia um sinal, todos os processos desse grupo recebem
+este processo que foi enviado.
+
+2.1.5 -----------------------
+Um processo pode estar completamente pronto para ir para o processador, mas o
+sistema pode barrar e alocar a CPU para um outro processo.
+O nível mais baixo do SO é o escalonador. Todo o tratamento de inter-
+rupções, detalhes de início e parada de processos estão nele.
+
+2.1.6 -----------------------
+O sistema operacional possui uma estrutura chamada de tabela de processos,
+ela contêm as informações de estado do processo, ponteiro de pilha, alocação
+de memória, estado de arquivos abertos, etc.
+
+Supondo um SO escrito em C: Figura 2.5
+1 - O SO termina um processo;
+2 - O escalonador é chamado para ver o próximo;
+3 - O próximo processo é chamado;
+4 - O assembly toma conta para separar os registradores, etc;
+Está bem resumido e talvez um pouco fora de ordem, analisar com outras pessoas.
+Um processo pode parar de ser processado várias vezes, mas ele sempre
+vai voltar a ser processado de onde ele parou.
+
+2.1.7 -----------------------
+Cerca de 80% de tempo de uso da CPU é tempo de espera para I/O.
+p = tempo esperando para que o I/O seja concluído
+n = processos na memoria ao mesmo tempo
+
+Utilização da CPU = 1 - p^n
+
+2.2 -------------------------
+2.2 ------------------------- Threads
+2.2 ------------------------- Threads
+2.2 -------------------------
+
+
+2.2.1 -----------------------
+Theads são meio que processos dentro de outros processos.
+Figura 2.8(a), olhar thread despachante e thread operário.
+existe a memória cache do servidor, o thread despachante é o que está
+"conectado" com a internet, ele verifica se tem algum thread sem fazer nada
+(que são os operários). que então verificam se aqui que está sendo procurado
+está na memoria cache, caso não esteja, o thread inicia a leitura de disco.
+Caso o thread seja bloqueado durante a leitura de disco, outro thread fará 
+este trabalho.
+
+2.2.2 -----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
