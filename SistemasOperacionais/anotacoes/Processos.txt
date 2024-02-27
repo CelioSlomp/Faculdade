@@ -80,8 +80,20 @@ Caso o thread seja bloqueado durante a leitura de disco, outro thread fará
 este trabalho.
 
 2.2.2 -----------------------
+Um thread pode ler, escrever e apagar o endereçamento de memória dentro do espaço
+de endereçamento de um processo. Pois não há proteção entre threads.
+Quando um processo abre algum arquivo, este arquivo fica "aberto" para todos
+os outros threads. -> Isso é por conta de que o arquivo fica dentro da 
+memoria cache? <- Pergunta para prox aula.
+Cada thread possui a sua propria pilha. Cada pilha possui uma estrutura para cada
+rotina chamada.
+Um thread quando está em execução, ele possui o CPU para ele próprio. Quando ele
+faz uma chamada de sistema para ler o teclado, por exemplo, ele fica bloqueado
+até o momento em que o usuário digita no teclado.
+Quando um thread terminar sua tarefa (thread_exit), ele não fica mais escalonável.
+O thread_join faz com que um thread seja bloqueado até que outro seja terminado.
 
-
+2.2.3 -----------------------
 
 
 
