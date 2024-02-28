@@ -94,6 +94,22 @@ Quando um thread terminar sua tarefa (thread_exit), ele não fica mais escaloná
 O thread_join faz com que um thread seja bloqueado até que outro seja terminado.
 
 2.2.3 -----------------------
+Threads POSIX, a IEEE criou um padrão para os threads IEEE 1003.1c. Este pacote se chama
+Pthreads. Olhar figura 2.14 e o pseudocodigo da figura 2.15.
+
+2.2.4 -----------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
