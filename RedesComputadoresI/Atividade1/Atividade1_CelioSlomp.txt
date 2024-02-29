@@ -1,0 +1,84 @@
+Como a largura de banda da rede impacta diretamente no desempenho de serviços 
+baseados na nuvem e na colaboração em ambientes corporativos?
+
+R.: A largura da banda é muito importante nos ambientes corporativos, pelo fato de
+que ela afeta diretamente no tempo em que se faz download e upload de arquivos/pastas
+no geral. Lembrando também que tempo é dinheiro.
+
+------------------------------------------------------------------------------------
+Quais são os principais desafios de segurança associados à implementação de 
+políticas BYOD em ambientes empresariais e como podem ser mitigados?
+
+R.: Os maiores problemas são os de possíveis vazamentos de dados que podem acontecer.
+Uma política que pode ser considerada é a da utilização de VPNs ou, de forma mais radical,
+a proibição de ferramentas pessoais no serviço.
+
+------------------------------------------------------------------------------------
+Como as nuvens privadas diferem das nuvens públicas em termos de arquitetura, 
+controle e segurança, e em que situações uma é mais adequada que a outra?
+
+R.: As nuvens privadas são servidores que armazenam os dados/serviços da empresa
+dentro da própria infraestrutura. Além de que elas possuem maior controle, pois o 
+servidor está localizado dentro da própria empresa, então você faz o que quiser
+nele. Também são mais seguros, pois podem ser aplicadas qualquer medida de segurança.
+Já as nuvens públicas são servidores que abrigam várias empresas. Elas podem ser
+parte do provedor de rede, ou algum outro serviço. Na pública, você tem menos controle,
+já que é outra empresa que "limita" aquilo que você pode fazer ou não. E elas podem ser
+menos seguras também, já que elas estão ligadas na rede o tempo todo e estão limitadas
+ao provedor de rede.
+Quanto à adequação, varia de cada empresa, pois uma startup, por exemplo, não tem
+o financeiro para aguentar um servidor grande e nem funcionários para cuidar disso,
+diferentemente do Google.
+
+------------------------------------------------------------------------------------
+De que maneira as nuvens híbridas oferecem uma solução mais flexível para empresas 
+em comparação com modelos de nuvem exclusivamente privados ou públicos?
+R.: Pois a empresa pode usar a outra opção caso seja melhor para ela. Por exemplo,
+caso uma empresa não possua uma certa infraestrutura para armazenar dados, ela pode
+fazer isso com a nuvem pública e fazer os processamentos de dados dentro da nuvem
+privada.
+
+------------------------------------------------------------------------------------
+Como a computação em nuvem contribui para a eficiência e escalabilidade dos data 
+centers modernos, considerando aspectos como virtualização e provisionamento dinâmico?
+R.: A virtualização permite a maximização dos recursos físicos, enquanto o 
+provisionamento dinâmico possibilita a alocação automática de recursos conforme a demanda. 
+
+------------------------------------------------------------------------------------
+Quais são os principais protocolos e tecnologias envolvidos na implementação 
+de redes de tecnologia residencial inteligente e como elas podem se integrar 
+a ambientes de nuvem?
+R.: Wifi, fazendo com que os dispositivos moveis se conectem com a internet.
+Bluetooth, conectando caixas de som sem fio, televisoes, lampadas, etc.
+Zigbee, é um protocolo para "casas smart", é algo como o Bluetooth, mas que
+alcança até 300 pés de distancia, utiliza a topologia de malha.
+
+------------------------------------------------------------------------------------
+Em que medida as redes powerline podem ser consideradas uma alternativa viável para 
+a conexão de dispositivos em ambientes onde a infraestrutura de rede tradicional é 
+desafiadora?
+R.: É uma boa opção para espaços externos, sem acesso ao WIFI, lugares com paredes
+grossas, etc. Aliás, ela usa a rede elétrica para passar a conexão, mas é aquele
+negócio, a confiabilidade dela pode variar muito.
+
+------------------------------------------------------------------------------------
+Quais são os principais desafios de segurança enfrentados por provedores de Internet 
+Sem Fio (WISP) ao oferecerem serviços em ambientes urbanos densos e como eles podem 
+ser superados?
+R.: Os principais problemas da rede sem fio é a de interceptação de dados, como por
+exemplo alguém mandar uma mensagem e outra pessoa pegar. Desta forma, as melhores
+opções são as de adicionar um firewall, implementação de uma criptografia, etc.
+
+------------------------------------------------------------------------------------
+Como a arquitetura de rede pode influenciar a colaboração eficaz entre diferentes 
+departamentos de uma organização, especialmente em ambientes distribuídos 
+geograficamente?
+R.: Ela influencia na colaboração de diversos departamentos, ela fornece conectividade
+global, acesso remoto, segurança robusta, fazendo com que equipes consigam se
+comunicar de forma eficiente, etc.
+
+------------------------------------------------------------------------------------
+Qual o papel da rede tolerante a falhas na garantia da continuidade dos serviços em
+ambientes críticos, como data centers e redes de infraestrutura essencial?
+R.: Ele, por meio de redundância e de rápida recuperação, consegue manter a 
+estabilidade do data center, fazendo com que não tenha nenhum problema aparente.
