@@ -98,12 +98,27 @@ Threads POSIX, a IEEE criou um padrão para os threads IEEE 1003.1c. Este pacote
 Pthreads. Olhar figura 2.14 e o pseudocodigo da figura 2.15.
 
 2.2.4 -----------------------
+Os threads no espaço de usuário tem a tabela de estruturas dentro do processo.
 
+2.2.5 -----------------------
+Não há uma tabela de threads em cada processo, o núcleo possui uma tabela que controla todos os threads.
+Quando um thread é bloqueado, o núcleo tem controle para poder executar um outro thread do mesmo processo ou não, caso esteja pronto, claro.
+O sistema pode criar e destruir outros threads, mas isso é caro para o processador,
+então muitos sistemas reciclam eles, marcando o thread como não executável e então,
+quando um novo thread vai ser criado, um que tinha sido marcado como não executável
+é reativado.
 
+2.2.6 -----------------------
+Existe o híbrido dos dois, que é quando o programador consegue "mesclar" os 
+threads de núcleo e de usuário. Neste caso, o núcleo tem conhecimento apenas
+dos threads de núcleo, que podem estar ligados com os threads de usuário.
+Neste modo, cada threads de núcleo possui uma lista de threads de usuário
+esperando para usá-lo.
 
+2.2.7 -----------------------
+Os threads de núcleo são mais lentos do que os de usuário.
 
-
-
+2.2.8 -----------------------
 
 
 
