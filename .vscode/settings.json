@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "tabela_hash.h": "c"
+        "tabela_hash.h": "c",
+        "iostream": "cpp",
+        "new": "cpp"
     },
     "java.project.sourcePaths": [
         "POO2/E07/ClassePersistente/src",
