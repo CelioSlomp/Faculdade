@@ -11,9 +11,9 @@ int main()
     Barco *jangada = new Jangada();
     Barco *barcoVela = new BarcoVelas();
 
-    iate->display();
-    bateira->display();
-    canoa->display();
-    jangada->display();
-    barcoVela->display();
+    iate->displayUP();
+    bateira->displayUP();
+    canoa->displayUP();
+    jangada->displayUP();
+    barcoVela->displayUP();
 }

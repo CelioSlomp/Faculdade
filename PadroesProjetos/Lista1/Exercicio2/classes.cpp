@@ -40,7 +40,7 @@ class Barco
 public:
     UnidadePotencia *unidadePotencia;
 
-    void display()
+    void displayUP()
     {
         unidadePotencia->display();
     }
