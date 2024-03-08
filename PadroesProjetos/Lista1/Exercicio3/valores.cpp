@@ -16,18 +16,24 @@ private:
     char localizacao;
 
 public:
+    DefinirValorComEdificacao(char loc, double esp, int com)
+    {
+        this->comodos = com;
+        this->espaco = esp;
+        this->localizacao = loc;
+    }
     virtual double definirValor()
     {
         int qtdeCom = this->comodos * 1000;
-        if (localizacao == 'A')
+        if (this->localizacao == 'A')
         {
-            return espaco * 3000 + qtdeCom;
+            return this->espaco * 3000 + qtdeCom;
         }
-        else if (localizacao == 'B')
+        else if (this->localizacao == 'B')
         {
-            return espaco * 1000 + qtdeCom;
+            return this->espaco * 1000 + qtdeCom;
         }
-        return espaco * 500 + qtdeCom;
+        return this->espaco * 500 + qtdeCom;
     }
 };
 
@@ -36,20 +42,27 @@ class DefinirValorSemEdificacao : public DefinirValorComportamento
 private:
     double espaco;
     char localizacao;
-    virtual double definirValor()
-    {
-        if (localizacao == 'A')
-        {
-            return espaco * 1500;
-        }
-        else if (localizacao == 'B')
-        {
-            return espaco * 750;
-        }
-        return espaco * 200;
-    }
 
 public:
+    DefinirValorSemEdificacao(char loc, double esp)
+    {
+        this->espaco = esp;
+        this->localizacao = loc;
+    }
+
+    virtual double definirValor()
+    {
+        if (this->localizacao == 'A')
+        {
+            return this->espaco * 1500;
+        }
+        else if (this->localizacao == 'B')
+        {
+            return this->espaco * 750;
+        }
+        return this->espaco * 200;
+    }
+
     void setEspaco(double esp)
     {
         this->espaco = esp;
@@ -62,11 +75,11 @@ public:
 
     double getEspaco()
     {
-        return espaco;
+        return this->espaco;
     }
 
     char getLocalizacao()
     {
-        return localizacao;
+        return this->localizacao;
     }
 };
