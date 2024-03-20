@@ -1,0 +1,58 @@
+Aula 5 -----------------------------------------
+No switch, o termo '>' simboliza que está no modo exec do usuário,
+enquanto que o '#' simboliza o modo com privilégios, ou seja,
+permite todos os comandos e recursos.
+
+Alguns comandos:
+Modo privilegiado: enable
+switch> -> switch#
+
+Modo de configuração global: configure terminal
+switch# -> switch(config)#
+
+Modo de configuração de linhas: line
+switch(config)# -> switch(config-line)#
+
+Modo de interface: interface
+switch(config)# -> switch(config-if)#
+
+Voltar: exit
+switch(config)# -> switch#
+
+Podemos abreviar alguns comandos, como por exemplo
+o comando 'configure terminal' para apenas 'configure', ou também,
+'conf t'
+
+Obs.: Ele vai retornar falso caso o comando seja ambiguo ou errado.
+
+Comando hostname _name_
+alterna o nome do switch -> Precisa estar no modo config.
+para voltar, basta digitar 'no hostname'
+
+-----------------------------------
+IPv4
+são quatro valores de 0 a 255
+
+Mascara de subrede determina em qual subrede o dispositivo está.
+Gateway é o IP do roteador.
+
+É utilizado o DHCP (dynamic host configuration protocol), que é
+um protocolo que disponibiliza IP's para os dispositivos conectados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
