@@ -19,7 +19,7 @@ class Subject
 {
 public:
     virtual ~Subject(){};
-    virtual void registerObserver() = 0;
-    virtual void removeObserver() = 0;
+    virtual void registerObserver(Observer *algumDisplay) = 0;
+    virtual void removeObserver(Observer *algumDisplay) = 0;
     virtual void notifyObservers() = 0;
 };

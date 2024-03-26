@@ -41,7 +41,8 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "xstring": "cpp"
     },
     "java.project.sourcePaths": [
         "POO2/E07/ClassePersistente/src",
