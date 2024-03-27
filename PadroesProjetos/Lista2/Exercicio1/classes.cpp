@@ -77,7 +77,7 @@ public:
             if (*i == algumDisplay)
             {
                 objetos.erase(i);
-                break; // Importante: após apagar o elemento, saia do loop
+                break;
             }
         }
     }
