@@ -1,0 +1,50 @@
+Aluno: Celio Ludwig Slomp
+Disciplina: Paradigmas da Programação
+
+EXERCÍCIOS
+
+DESCRIÇÃO:
+    Resolva os exercícios abaixo.
+
+
+1 - Com recursividade e a linguagem de sua preferência, faça um contador para explodir uma bomba, no formato do exemplo abaixo:
+    entrada:
+    5
+
+    saída:
+    5
+    4
+    3
+    2
+    1
+    BOOM!
+
+Codigo:
+
+
+------------------------------------------------------------
+2 - Crie um exemplo de código utilizando labeled loop.
+Codigo:
+
+------------------------------------------------------------
+3 - Pesquise algum recurso de linguagem de programação não visto em aula e demonstre seu uso prático através de um exemplo.
+Resposta:
+
+------------------------------------------------------------
+4 - Pesquise em que linguagem a maior parte do UNIX foi escrita.
+Resposta:
+
+------------------------------------------------------------
+5 - O que significa dizer que um programa é confiável?
+Resposta:
+
+------------------------------------------------------------
+6 - Quais são as vantagens de implementar uma linguagem com um interpretador?
+Resposta:
+
+------------------------------------------------------------
+7 - Marque V para as afirmações verdadeiras e F para as falsas:
+    a - (  ) Java tem tipagem estática e dinâmica.
+    b - (  ) Python tem tipagem estática e forte.
+    c - (  ) Python tem tipagem dinâmica e forte.
+    d - (  ) JavaScript tem tipagem fraca e dinâmica.

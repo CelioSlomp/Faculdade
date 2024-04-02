@@ -1,0 +1,52 @@
+Aluno: Celio Ludwig Slomp
+Disciplina: Paradigmas da Programação
+
+DESCRIÇÃO:
+    Resolver os exercícios abaixo utilizando o paradigma procedural em linguagem C.
+
+1 - Implemente o fatorial de um número utilizando estrutura de repetição.
+Codigo:
+
+------------------------------------------------------------
+2 - Implemente o fatorial de um número utilizando recursividade.
+Codigo:
+
+------------------------------------------------------------
+3 - Implemente a sequência de Fibonacci utilizando estrutura de repetição. (EXTRA) Implemente utilizando somente duas variáveis (sem a variável auxiliar).
+Codigo:
+
+------------------------------------------------------------
+4 - Implemente a sequência de Fibonacci utilizando recursividade.
+Codigo:
+
+------------------------------------------------------------
+5 - Implemente um programa que sorteie números inteiros positivos entre 1 e 100 aleatoriamente até que sejam sorteados 25 números primos. Imprima o total de números gerados.
+Codigo:
+
+------------------------------------------------------------
+6 - Dois números são ditos amigos quando a soma dos divisores de cada um deles é igual ao outro. Implemente um programa que receba dois números e diga se eles são amigos. Ex: 220 e 284. 
+Codigo:
+
+------------------------------------------------------------
+7 - Um número é dito perfeito se a soma dos seus divisores é igual a ele mesmo (ex: 6). Implemente um programa que receba um número e diga se ele é perfeito.
+Codigo:
+
+------------------------------------------------------------
+8 - Utilizando recursividade, implemente um algoritmo que multiplique dois números.
+Codigo:
+
+------------------------------------------------------------
+9 - Utilizando recursividade, implemente um algoritmo que receba um número inteiro e diga quantos dígitos ele tem.
+Codigo:
+
+------------------------------------------------------------
+10 - Utilizando uma estrutura de dados de sua escolha (pilha, fila, array etc), implemente a função pertence, que deve receber um elemento e informar se ele pertence à estrutura.
+Codigo:
+
+------------------------------------------------------------
+11 - Altere o exercício 5 para que ele pare somente quando encontrar os 25 números primos existentes entre 1 e 100, isto é, os 25 números primos devem ser diferentes.
+Codigo:
+
+------------------------------------------------------------
+12 - Implemente um algoritmo que receba um CPF na forma XXXXXXXXXXX. Verifique e informe se a entrada é um CPF válido.
+Codigo:
