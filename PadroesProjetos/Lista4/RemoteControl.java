@@ -7,6 +7,8 @@ public class RemoteControl {
 
     Command onCommand;
     Command offCommand;
+    int ultimoSlot;
+    boolean onOff;
 
     ArrayList<Command> num;
     HashMap<Integer, ArrayList<Command>> nums;
@@ -35,10 +37,14 @@ public class RemoteControl {
 
     public void onButtonWasPushed(int slot) {
         nums.get(slot).get(0).execute();
+        this.ultimoSlot = slot;
+        this.onOff = true;
     }
 
     public void offButtonWasPushed(int slot) {
         nums.get(slot).get(1).execute();
+        this.ultimoSlot = slot;
+        this.onOff = false;
     }
 
     public String toString() {
@@ -49,6 +55,14 @@ public class RemoteControl {
         }
 
         return texto;
+    }
+
+    public void undo() {
+        System.out.println("Desfazendo ultima ação:");
+        if (onOff)
+            this.offButtonWasPushed(ultimoSlot);
+        else
+            this.onButtonWasPushed(ultimoSlot);
     }
 
 }
