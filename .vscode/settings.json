@@ -72,5 +72,6 @@
     "java.project.sourcePaths": [
         "POO2/E07/ClassePersistente/src",
         "POO2/E07/Classe_Persistente/src/main/java/edu/ifc/classe_persistente"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
