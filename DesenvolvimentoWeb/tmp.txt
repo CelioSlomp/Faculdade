@@ -1,1 +1,0 @@
-Apenas um arquivo para ir para o Git.
