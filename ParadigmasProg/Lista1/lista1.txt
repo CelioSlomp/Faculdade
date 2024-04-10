@@ -19,12 +19,34 @@ DESCRIÇÃO:
     1
     BOOM!
 
-Codigo:
+Codigo: -Python3-
 
+def detonarBomba(num):
+    if not num:
+        print("BOOM!")
+        return 0
+    print(num)
+    return detonarBomba(num-1)
+
+if __name__ == "__main__":
+    detonarBomba(int(input("Digite o timer: ")))
 
 ------------------------------------------------------------
 2 - Crie um exemplo de código utilizando labeled loop.
-Codigo:
+Codigo: -Java-
+
+public class Ex2 {
+    public static void main(String[] args) {
+
+        loop1: for (int i = 0; i < 10; i++) {
+            loop2: for (int j = 0; j < 10; j++) {
+                System.out.println(String.valueOf(i) + " " + String.valueOf(j));
+                if (i == 4 && j == 6)
+                    break loop1; // Para o loop1, que é o principal.
+            } // loop2
+        } // loop1
+    } // main
+} // class
 
 ------------------------------------------------------------
 3 - Pesquise algum recurso de linguagem de programação não visto em aula e demonstre seu uso prático através de um exemplo.
@@ -32,19 +54,21 @@ Resposta:
 
 ------------------------------------------------------------
 4 - Pesquise em que linguagem a maior parte do UNIX foi escrita.
-Resposta:
+Resposta: Foi utilizado em sua maioria a linguagem C.
 
 ------------------------------------------------------------
 5 - O que significa dizer que um programa é confiável?
-Resposta:
+Resposta: É quando o programa está de acordo com aquilo que foi especificado desde o início, que haja tolerância a 
+falhas, segurança, entre outros fatores. 
 
 ------------------------------------------------------------
 6 - Quais são as vantagens de implementar uma linguagem com um interpretador?
-Resposta:
+Resposta: Se torna um programa mais fácil para se depurar já que o programa é executado de linha por linha, se sabe exatamente 
+o lugar que ocorreu o erro e o porquê dele, etc.
 
 ------------------------------------------------------------
 7 - Marque V para as afirmações verdadeiras e F para as falsas:
-    a - (  ) Java tem tipagem estática e dinâmica.
-    b - (  ) Python tem tipagem estática e forte.
-    c - (  ) Python tem tipagem dinâmica e forte.
-    d - (  ) JavaScript tem tipagem fraca e dinâmica.
+    a - ( F ) Java tem tipagem estática e dinâmica.
+    b - ( F ) Python tem tipagem estática e forte.
+    c - ( V ) Python tem tipagem dinâmica e forte.
+    d - ( V ) JavaScript tem tipagem fraca e dinâmica.
