@@ -34,7 +34,7 @@ def main():
                 parametro = i[0] + "Par, "
                 atributosBdSemId += i[0] + ", "
                 atributosBdPar += parametro
-                atributosBdTipoIn += "in " + i[0] + "Par " + i[1] + ", "
+                atributosBdTipoIn += i[0] + "Par " + i[1] + ", "
                 atributosBdTipoOut += "out " + i[0] + "Par " + i[1] + ", "
                 atributosSets += i[0] + "=" + parametro
                 atributosBd += i[0] + ", "
@@ -57,13 +57,13 @@ def main():
         print(erroMysql) # Printa o erro do mysql, geralmente é da tabela que não existe ou o bd que nao existe
 
 def criarInsert(nomeTabela, atributosBdSemId, identificador, atributosBdPar, atributosBdTipoIn):
+
     codigoQuery = "create procedure if not exists " + nomeTabela + "_insere(\
     out " + identificador[0] + "Par " + identificador[1] + ", " + atributosBdTipoIn + ")\
     begin\
     insert into " + nomeTabela + " (" + atributosBdSemId + ") values (" + atributosBdPar + ");\
     SELECT LAST_INSERT_ID() into " + identificador[0] + "Par;\
-    end\
-    "
+    end"
 
     return codigoQuery
 
