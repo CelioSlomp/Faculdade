@@ -1,0 +1,36 @@
+
+
+
+
+Protocolos de camada fisica:
+    são padrões, por meio de software de um hardware de transmissão
+    como por exemplo uma empresa e uma filial, ambas se comunicam por
+    meio de fibra optica. Uma envia para outra por meio de um hard-
+    ware que envia pela fibra optica os dados.
+
+Sinalização:
+    um bit que é enviado para falar que está indo dados.
+
+cabo UTP:
+    cabo que nao tem proteção contra indução.
+    tipo o cat5
+    tem pares de polaridades oposta. um é positivo e outro negativo.
+    TIA/EIA são as normas que ele utiliza.
+
+    Direto: ambas T568A ou T568B, tanto faz para funcionar.
+    Cruzaro: uma ponta de um dos acima, e a outr ponta tem outro.
+
+cabo STP:
+    cabo que possui uma proteção contra indução.
+    tipo o cat6
+
+cabo coaxial:
+    aquele cabo de tv a cabo.
+
+cabo de fibra optica:
+    não possui indução, perda quase que minima.
+    ele usa um laser ou LED para passar os dados.
+
+Wireless:
+    WLAN -> Rede sem fio.
+    
