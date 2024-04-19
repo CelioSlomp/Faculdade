@@ -88,10 +88,26 @@ faça o que se pede:
     ********
 
 a. O que é exibido na tela quando o código da esquerda é executado? Por quê?
+Resposta: É exibido o valor 10 quando o código é executado, isso acontece pelo fato
+de que lamp2 tem o ponteiro de lamp1, fazendo com que os dois sejam literalmente
+o mesmo objeto.
+
 b. O que é exibido na tela quando o código da direita é executado? Por quê?
+Resposta: Nada, pois como ambos passaram por construções diferentes em momentos diferentes, 
+eles acabam não sendo iguais.
+
 c. Qual é o valor de i ao final da execução do código da esquerda?
+Resposta: 11.
+
 d. Qual é o valor de i ao final da execução do código da direita?
+Resposta: 10
+
 e. O que acontece se acrescentarmos as duas linhas abaixo no código da
 esquerda? E no da direita? Por quê?
     lamp1.trocarTipo(“Halógena”);
     lamp2.mostrarInformacoesGerais();
+Resposta: No código da esquerda, por lamp2 possuir o ponteiro para lamp1, quando você
+altera o lamp1, altera o lamp2 também, já que ambos são iguais. Desta forma, quando
+lamp2 for mostrar as informacoes, mostrará que o tipo da lampada é halógena.
+Já no código da direita, lamp2 continuará sendo LED, enquanto que lamp1 mudou para
+o tipo halógena, por causa que são duas lampadas diferentes.
