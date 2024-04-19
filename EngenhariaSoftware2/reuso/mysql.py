@@ -1,4 +1,5 @@
 import mysql.connector
+from xml.dom import minidom
 
 def main():
     ## Cria a tabela e o cursor
