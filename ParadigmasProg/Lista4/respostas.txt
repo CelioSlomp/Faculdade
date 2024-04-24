@@ -1,0 +1,105 @@
+Aluno: Celio Ludwig Slomp
+Disciplina: Paradigmas da Programação
+
+DESCRIÇÃO
+    A atividade consiste em resolver os exercícios abaixo utilizando o paradigma lógico.
+
+1. A família Silva era muito grande até poucos dias atrás, mas uma tragédia aconteceu:
+    em um churrasco de aniversário de 100 anos, João comprou somente carne Friboi. O
+    resultado todos já sabem: 80% da família faleceu. Sobreviveram apenas 4 de seus 22
+    filhos, Maria, Pedro, Marcos e Joana. Os filhos de Pedro - Ricardo e Bruno - também
+    sobreviveram, pois são veganos. Victor, filho de Bruno, também sobreviveu.
+    Represente as relações pai(X, Y) em Prolog, contendo todos os pais da família Silva.
+Resposta:
+
+    pai(joão, maria).
+    pai(joão, pedro).
+    pai(joão, marcos).
+    pai(joão, joana).
+    pai(pedro, ricardo).
+    pai(pedro, bruno).
+    pai(bruno, victor).
+
+------------------------------------------------------------
+2. Crie uma consulta para descobrir o pai de Ricardo.
+Resposta: 
+
+    ?-pai(P, ricardo).
+
+------------------------------------------------------------
+3. Defina os predicados irmao(X, Y) e irma(X, Y). Obs.: sugere-se utilizar um fato
+sexo(X, S) para resolver esta questão.
+Resposta:
+
+    sexo(joão, masculino).
+    sexo(pedro, masculino).
+    sexo(marcos, masculino).
+    sexo(ricardo, masculino).
+    sexo(bruno, masculino).
+    sexo(victor, masculino).
+    sexo(maria, feminino).
+    sexo(joana, feminino).
+
+    irma(X, Y) :- sexo(X, feminino), pai(Z, X), pai(Z, Y), X\==Y.
+    irmao(X, Y) :- sexo(X, masculino), pai(Z, X), pai(Z, Y), X\==Y.
+
+------------------------------------------------------------
+4. Crie uma consulta para descobrir a irmã de Bruno.
+Resposta: 
+
+    irma(X, bruno).
+
+------------------------------------------------------------
+5. Defina os predicados neto(X, Y) e neta(X, Y) e descubra quem é neto de João.
+Resposta:
+
+    neto(X, Y) :- sexo(X, masculino), pai(Z, X), pai(Y, Z). % X é neto de Y
+    neta(X, Y) :- sexo(X, feminino), pai(Z, X), pai(Y, Z). % X é neta de Y
+
+    query:
+        ?-neto(X, joão). % feminino não tem ninguém
+
+    output:
+        X = ricardo
+        X = bruno
+
+------------------------------------------------------------
+6. Defina o predicado bisneto(X, Y) e descubra quem é bisneto de João.
+Resposta:
+
+    bisneto(X, Y) :- sexo(X, masculino), pai(Z, X), neto(Z, Y). % X é bisneto de Y
+
+    query:
+        ?-bisneto(X, joão).
+
+    output:
+        X = victor
+
+------------------------------------------------------------
+7. Crie 4 exemplos de fatos da relação aluno(X).
+Resposta:
+
+    aluno(joão).
+    aluno(pablo).
+    aluno(paula).
+    aluno(bruno).
+
+------------------------------------------------------------
+8. Crie fatos da relação nota(X, Y), onde X é o nome do aluno e Y a nota).
+Resposta:
+
+    nota(joão, 6).
+    nota(pablo, 4).
+    nota(paula, 7).
+    nota(bruno, 8).
+
+------------------------------------------------------------
+9. Defina o predicado passou(X), que deve deduzir se um aluno passou. Assuma que
+para passar o aluno precisa de nota maior ou igual a 7.
+Resposta:
+
+------------------------------------------------------------
+10. Suponha que ainda seja necessário, além da nota maior ou igual a 7, obter frequência
+igual ou superior a 75. Defina o predicado passou2(X), que considera também a
+frequência. Se for necessário, crie novas relações.
+Resposta:

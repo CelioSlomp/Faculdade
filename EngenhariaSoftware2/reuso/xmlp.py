@@ -1,16 +1,13 @@
-from bs4 import BeautifulSoup
+import xml.etree.ElementTree as ET
 
 def main():
-    arq = open('tabela.xml', 'r')
-    dados = arq.read()
+    arq = ET.parse('tabela.xml')
+    tab = arq.getroot()
 
-    dados_lib = BeautifulSoup(dados, 'xml')
-
-    tabelas = dados_lib.find_all('coluna')
-    tabela = dados_lib.find('coluna')
-    
-    for i in tabelas:
-        print(i)
+    '''
+        Perguntar se precisa criar a tabela e então fazer as procedures, ou é só as procedures
+        sabendo que a tabela já foi criada.
+    '''
 
 if __name__ == "__main__":
     main()
