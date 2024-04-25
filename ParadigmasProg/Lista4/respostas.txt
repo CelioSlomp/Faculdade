@@ -98,8 +98,17 @@ Resposta:
 para passar o aluno precisa de nota maior ou igual a 7.
 Resposta:
 
+    passou(X) :- nota(X, Y), Y >= 7.
+
 ------------------------------------------------------------
 10. Suponha que ainda seja necessário, além da nota maior ou igual a 7, obter frequência
 igual ou superior a 75. Defina o predicado passou2(X), que considera também a
 frequência. Se for necessário, crie novas relações.
 Resposta:
+
+    frequencia(joão, 50).
+    frequencia(pablo, 90).
+    frequencia(paula, 75).
+    frequencia(bruno, 20).
+
+    passou2(X) :- nota(X, Y), Y >= 7, frequencia(X, Z), Z >= 75. % Y recebe a nota e Z a frequencia.

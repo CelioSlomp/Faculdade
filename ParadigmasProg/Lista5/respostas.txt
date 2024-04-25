@@ -1,0 +1,119 @@
+Aluno: Celio Ludwig Slomp
+Disciplina: Paradigmas da Programação
+
+DESCRIÇÃO
+A atividade consiste em resolver os exercícios abaixo utilizando o paradigma funcional,
+e pode ser feita em dupla.
+
+1. Qual é o resultado da expressão abaixo? Por quê?
+(1 == 4 && True, mod (4*8) 31^2-5)
+Resposta:
+    O resultado é uma tupla contendo o valor False, por causa do '1==4 && True' e também
+    o valor -4, resultante da expressão, segue a explicação:
+    (4*8) = 32;
+    mod 32 31 => 1 -- Resto da divisão de 32 com 31, que resulta em 1.
+    1^2 -- Resulta em 1
+    1-5 -- Resulta em -4
+    Desta forma, o valor da expressão é: (False, -4)
+    
+
+------------------------------------------------------------
+2. Cite um valor matemático para o qual os operadores ** e ^ não apresentam o mesmo
+comportamento.
+Resposta: 
+    Como o operador '^' é apenas para valores inteiros, qualquer expoente negativo (que
+    faça com que o resultado seja uma fração) resulta em erro: "*** Exception: Negative exponent".
+    Desta forma, deve-se utilizar o '**', que é para valores com ponto flutuante.
+    Então, o valor 2^(-1) resulta em erro, enquanto que 2**(-1) resulta em 0.5.
+
+------------------------------------------------------------
+3. Crie a função dobro (dobro :: Double -> Double), que deve retornar o dobro de
+um número.
+Resposta:
+
+    dobro :: Double -> Double
+    dobro x = x * 2
+
+------------------------------------------------------------
+4. Crie as funções incremento e decremento, que devem adicionar e remover 1 a um
+valor, respectivamente.
+Resposta:
+
+    incremento :: (Num a) => a -> a
+    incremento x = x + 1
+
+    decremento :: (Num a) => a -> a
+    decremento x = x - 1
+
+------------------------------------------------------------
+5. Interprete o comando abaixo:
+*Main> :t decremento (incremento 9)
+decremento (incremento 9) :: Num a => a
+Resposta:
+
+    ghci> :t decremento (incremento 9)
+    decremento (incremento 9) :: Num a => a
+    ghci> decremento (incremento 9) :: Num a => a
+    9
+    ghci>
+
+------------------------------------------------------------
+6. Implemente a função sobeDesce (sobeDesce :: (Num t, Num t) => (t, t)
+-> (t, t)). Esta função recebe um par ordenado e devolve um par ordenado com o
+primeiro valor somado a 1 e o segundo valor subtraído a 1.
+Resposta:
+
+    sobeDesce :: (Num t, Num t) => (t, t) -> (t, t)
+    sobeDesce (x, y) = (x + 1, y - 1)
+
+------------------------------------------------------------
+7. Implemente a função sobeDesce2, semelhante à questão anterior, mas utilizando as
+funções incremento e decremento.
+Resposta:
+
+    incremento :: (Num a) => a -> a
+    incremento x = x + 1
+
+    decremento :: (Num a) => a -> a
+    decremento x = x - 1
+
+    sobeDesce2 :: (Num t, Num t) => (t, t) -> (t, t)
+    sobeDesce2 (x, y) = (incremento x, decremento y)
+
+------------------------------------------------------------
+8. Implemente a função trocaValor (a, b), que deve inverter os valores de a e b no
+par ordenado.
+Resposta:
+
+    trocaValor :: (Num t, Num t) => (t, t) -> (t, t)
+    trocaValor (x, y) = (y, x)
+
+------------------------------------------------------------
+9. A função negate (negate :: Num a => a -> a) serve para mudar o sinal de um
+número. Crie um exemplo válido utilizando esta função.
+Resposta:
+    negate 5
+        - Retorna -5
+    
+    negate (-5)
+        - Retorna 5
+
+------------------------------------------------------------
+10. Um programador iniciante está aprendendo Haskell e decidiu tentar resolver a lista do
+professor Ricardo. Ele tentou resolver o exercício 9, mas não obteve sucesso e disse
+que a lista do professor é impossível. O código dele encontra-se abaixo. Sua tarefa é
+explicar ao programador por que ele obteve erro.
+
+    Prelude> negate -8
+
+    <interactive>:3:1:
+        Non type-variable argument in the constraint: Num (a -> a)
+        (Use FlexibleContexts to permit this)
+        When checking that ‘it’ has the inferred type
+        it :: forall a. (Num a, Num (a -> a)) => a -> a
+
+Resposta:
+    Isso ocorre porque ele não interpreta '-8' como um número, mas sim como uma operação
+    aritmética, que é nenhum valor menos 8, que resulta em erro. Para fazer com que o 
+    negate interprete '-8' como um número, precisa colocar o comando entre parênteses:
+    negate (-8)
