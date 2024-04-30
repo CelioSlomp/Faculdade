@@ -11,6 +11,16 @@ calcCirc r = pi * (r ** 2)
 
 -- Ex2 ---------------------------------------
 
+triangulo :: Int -> Int -> Int -> [Char]
+triangulo x y z
+  | x > (y + z) || y > (x + z) || z > (x + y) = "NAOTRI"
+  | x == y && y == z = "Equilatero"
+  | x == y || x == z || y == z = "Isosceles"
+  | otherwise = "Escaleno"
+
+-- main = do
+--  print (triangulo 5 4 3)
+
 -- Ex3 ---------------------------------------
 
 multiplica :: Int -> Int -> Int
