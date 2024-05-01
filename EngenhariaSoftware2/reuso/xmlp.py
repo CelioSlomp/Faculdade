@@ -4,10 +4,18 @@ def main():
     arq = ET.parse('tabela.xml')
     tab = arq.getroot()
 
-    '''
-        Perguntar se precisa criar a tabela e então fazer as procedures, ou é só as procedures
-        sabendo que a tabela já foi criada.
-    '''
+    atributosTabela = []
+
+    for i in tab[0]:
+        # 'i' vai ser uma das 'colunas', portanto, 'i.keys()' resultara em todas
+        # as tags que a coluna vai ter.
+        dictGeral = {} # Cria um dicionario para colocar os tipos dos atributos
+        for j in i.keys():
+            dictGeral[j] = i.get(j)
+
+        atributosTabela.append(dictGeral)
+
+    print(atributosTabela)
 
 if __name__ == "__main__":
     main()
