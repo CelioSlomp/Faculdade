@@ -1,0 +1,194 @@
+* Introdução
+
+Apresentação do plano de ensino.
+
+Conhecimentos que costumam ser úteis como pré-requisitos:
+- Programação
+- Estruturas de Dados
+- Teoria da Computação
+- Linguagens Formais e Autômatos
+- Teoria de Grafos
+- Inteligência Artificial
+- Arquitetura de Computadores
+- Engenharia de Software
+
+Quais são os pré-requisitos da disciplina?
+Qual é o background da turma sobre Linguagens Formais e Autômatos e Teoria da Computação?
+
+Compilador é uma ferramenta que transforma o programa escrito em uma linguagem fonte em um código de uma linguagem alvo, semanticamente equivalente.
+O Compilador atua como um tradutor e normalmente (mas não sempre -- ver tradutor fonte a fonte) é utilizado para converter um código escrito em uma linguagem de alto nível para um código de máquina para um processador.
+
+Segundo Cooper (2014), para que a tradução ocorra, o compilador deve entender tanto a forma (ou sintaxe) quanto o conteúdo (ou significado/semântica) da linguagem de entrada, e, ainda, as regras que controlam a sintaxe e o significado na linguagem de saída.
+
+Um compilador é um sistema de software de grande porte, com muitos componentes e algoritmos internos e interações complexas entre eles. Assim, o estudo da construção de compiladores é uma introdução às técnicas para a tradução e o aperfeiçoamento de programas, além de um exercício prático em engenharia de software (Cooper, 2014).
+
+"Um bom compilador contém um microcosmo da ciência da computação. Faz uso prático de algoritmos gulosos (alocação de registradores), técnicas de busca heurística (agendamento de lista), algoritmos de grafos (eliminação de código morto), programação dinâmica (seleção de instruções), autômatos finitos e autômatos de pilha (análises léxica e sintática) e algoritmos de ponto fixo (análise de fluxo de dados). Lida com problemas, como alocação dinâmica, sincronização, nomeação, localidade, gerenciamento da hierarquia de memória e escalonamento de pipeline. Poucos sistemas de software reúnem tantos componentes complexos e diversificados. Trabalhar dentro de um compilador fornece experiência em engenharia de software, difícil de se obter com sistemas menores, menos complicados" (COOPER, 2014).
+
+Obs.: o conceito de compilador já foi visto em Paradigmas de Programação.
+
+Exemplos:
+
+Código C -> Compilador C -> Linguagem de Máquina
+Texto LaTeX -> Compilador LaTeX -> Postscript¹ ou PDF
+Java -> Javac -> Java Bytecode -> JVM -> Resulado
+Haskell -> GHC -> C
+
+Eu resumo, o que vimos nos exemplos acima poderia ser escrito genericamente como:
+Fonte -> Compilador -> Alvo
+
+Linguagens “fonte” típicas podem ser C, C++, C#, Python ou Java. Linguagem “alvo” geralmente é o conjunto de instruções de algum processador.
+
+Exemplos de compiladores conhecidos: gcc, javac, ghc, pypy.
+
+Veja aqui alguns compiladores para C e outras linguagens:
+- https://rextester.com/l/c_online_compiler_visual
+- https://ideone.com/Hiq1Or (clang)
+- https://www.onlinegdb.com/online_c_compiler (gcc? e turbo c)
+
+Compiladores de uma mesma linguagem geram códigos iguais? Vejamos:
+-- Código disponível em Códigos/Compiladores (hello world simples).
+-- Compila o código com o GCC:
+> gcc hello-world.c -o hello-world-gcc.out
+-- Linha necessária para criar um link, pois clang-6.0 era o comando reconhecido:
+> sudo ln -s /usr/bin/clang-6.0 /usr/bin/clang
+-- Compila o código com o CLang:
+> clang hello-world.c -o hello-world-clang.out
+-- Verifica se os arquivos gerados são diferentes:
+> diff hello-world-gcc.out hello-world-clang.out
+-- Verifica alguns caracteres imprimiveis nos executáveis:
+> strings hello-world-gcc.out | tail
+> strings hello-world-clang.out | tail
+> strings hello-world-gcc.out | head
+> strings hello-world-clang.out | head
+> objdump -D hello-world-clang.out
+> objdump -D hello-world-gcc.out
+
+* objdump é uma ferramenta de linha de comando utilizada para exibir informações sobre arquivos objeto em sistemas operacionais Unix-like. Um arquivo objeto é geralmente gerado durante o processo de compilação e contém código de máquina, dados e informações de cabeçalho associadas ao programa ou à biblioteca. Entre as ações realizadas por esta ferramenta estão a desmontagem de código ou disassembly (objdump -d arquivo.obj), a listagem de seções (parâmetro -h), a exibição de tabela de símbolos (parâmetro -t) entre outros.
+
+* Breve Histórico
+	- Primeiros compiladores surgiram na década de 50;
+	- Vários compiladores foram construídos nas décadas de 60 e 70. O foco era a otimização do código com base na arquitetura CISC;
+	- Na década de 80, com o surgimento da arquitetura RISC, surgiram compiladores com forte foco em otimização;
+	- Na década de 90, surgiram novos desafios para a construção de compiladores, como controle de pipelines, latência de memória e geração de código paralelo.
+
+* Compilação e Interpretação
+
+- Um interpretador toma como entrada uma especificação executável e produz como saída o resultado da execução da especificação:
+Fonte -> Interpretador -> Resultados
+
+- Um interpretador possui o mesmo front-end que um compilador, a diferença dos dois está no back-end. Veremos o que são front-end e back-end ao longo da disciplina.
+	- O back-end é um grande componente que será detalhado na disciplina.
+			- No compilador, ele recebe uma árvore sintática e transforma esta árvore em código alvo.
+			- O back-end do interpretador não gera código, mas executa as instruções presentes em um código intermediário. No interpretador, muitas vezes esse código intermediário é a própria árvore sintática.
+	- O processo de tradução é mais rápido no interpretador, pois ele tem menos fases que o compilador.
+	- O código gerado pelo compilador é mais rápido do que a execução de um interpretador.
+	- O interpretador geralmente dá mensagens de erro melhores em tempo de execução, já que ele possui acesso ao código-fonte.
+	- Alguns interpretadores analisam e executam um programa linha a linha. Exemplo: BASIC.
+
+- Há diversas linguagens com implementações interpretadas, tais como JavaScript, Perl, Python, R e Ruby.
+
+- Semelhanças entre Compiladores e Interpretadores (Cooper, 2014):
+	- Analisam o programa de entrada e determinam se é ou não um programa válido;
+	- Constroem um modelo interno da estrutura e significado do programa;
+	- Determinam onde armazenar valores durante a execução.
+
+- Existem ainda linguagens cujas implementações adotam esquemas de tradução que incluem tanto compilação quanto interpretação, como ocorre com Java.
+- A linguagem Java é compilada do código-fonte para um formato denominado bytecode, uma representação intermediária, compacta, que visa diminuir tempos de download para aplicativos Máquina Virtual Java. Aplicativos Java são executados usando o bytecode na Máquina Virtual Java (Java Virtual Machine -- JVM), um interpretador para bytecode. Para complicar ainda mais as coisas, algumas implementações da JVM incluem um compilador, às vezes chamado de compilador just-in-time, ou JIT, que, em tempo de execução, traduz sequências de bytecode muito usadas em código nativo para o computador subjacente.
+- Java usa JIT, assim como Python (PyPy), .NET da Microsoft entre outros.
+- Em geral, diz-se que compiladores JIT trazem benefícios de performance e otimizam o código. Por outro lado, podem trazer problemas de segurança relativos ao acesso aos dados e também um custo inicial elevado, especialmente sentido em aplicações pequenas.
+
+* Tradutores fonte a fonte:
+
+Citação de Cooper (2014):
+"Alguns compiladores produzem um programa-alvo escrito em uma linguagem de programação orientada a humanos, em vez da assembly de algum computador. Os programas que esses compiladores produzem requerem ainda tradução antes que possam ser executados diretamente em um computador. Muitos compiladores de pesquisa produzem programas C como saída. Como existem compiladores para C na maioria dos computadores, isto torna o programa-alvo executável em todos estes sistemas ao custo de uma compilação extra para o alvo final. Compiladores que visam linguagens de programação, em vez de conjunto de instruções de um computador, frequentemente são chamados tradutores fonte a fonte". Tradutores fonte a fonte também são ditos compiladores fonte a fonte, transpiladores ou transcompiladores.
+
+Tradutores fonte a fonte podem ser utilizados para tradução de paralelismo automático (por automatic parallelization compiler) e de código legado, por exemplo, quando é necessário substituir instruções antigas, obsoletas e não aceitas em uma API ou em novas versões da linguagem por outras instruções atualizadas. Outra possibilidade é a inversa: escrevemos um código considerando instruções atualizadas, mas o código pode ser executado por quem usa ferramentas desatualizadas. Nesse caso, queremos garantir a retrocompatibilidade.
+
+Um exemplo é o uso de pré-processadores de CSS, por exemplo, o SASS. O SASS dispõe de diversos recurrsos que facilitam a escrita das regras de estilização. Ao compilar o código, gera-se um código CSS equivalente e interpretável por navegadores web. A ferramenta de linha de comando sass também pode ser considerada um transpilador.
+
+Ofuscadores também são considerados tradutores fonte a fonte. Conforme Goldwasser & Rothblum (2007), um ofuscador é um compilador que transforma qualquer programa em um programa ofuscado que possui a mesma funcionalidade de entrada-saída do programa original, mas é "ininteligível". Ofuscações têm aplicações para criptografia e proteção de software.
+
+Exemplo de código de entrada:
+function NewObject(prefix)
+{
+    var count=0;
+    this.SayHello=function(msg)
+    {
+          count++;
+          alert(prefix+msg);
+    }
+    this.GetCount=function()
+    {
+          return count;
+    }
+}
+var obj=new NewObject("Message : ");
+obj.SayHello("You are welcome.");
+                        
+Exemplo de código de saída após ação de um ofuscador (https://javascriptobfuscator.com/Javascript-Obfuscator.aspx):
+var _0xa034=["\x53\x61\x79\x48\x65\x6C\x6C\x6F","\x47\x65\x74\x43\x6F\x75\x6E\x74","\x4D\x65\x73\x73\x61\x67\x65\x20\x3A\x20","\x59\x6F\x75\x20\x61\x72\x65\x20\x77\x65\x6C\x63\x6F\x6D\x65\x2E"];function NewObject(_0x296bx2){var _0x296bx3=0;this[_0xa034[0]]= function(_0x296bx4){_0x296bx3++;alert(_0x296bx2+ _0x296bx4)};this[_0xa034[1]]= function(){return _0x296bx3}}var obj= new NewObject(_0xa034[2]);obj.SayHello(_0xa034[3])
+
+Outro exemplo conhecido, também geralmente utilizado no universo do front-end para web, é o Babel, um transpiler para JavaScript.
+Abra seu navegador, no console (F12) e digite:
+const aula = disciplina => `Neste momento nós estamos na aula de ${disciplina.toUpperCase()}.`
+Criamos uma arrow function com identificador aula, que recebe o parâmetro disciplina e exibe uma mensagem.
+Podemos utilizá-la, ainda no console, digitando console.log(aula('Compiladores'))
+Nossa função funcionou bem e havia outras formas de criá-la. Uma vez que ela foi criada desta forma, será que navegadores antigos são capazes de entender esta instrução?
+
+Entre em: https://babeljs.io/repl#?browsers=defaults&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=MYewdgzgLgBAhgVwDZxgXhgEwJYWNgByWzFTQD4YADAOQFNo6YBbEZusKEGMAZ4hgMocVgNLxkqTEwAkAbxx5CxUgDouAVQIE6AJwDCcCHQAUASgC-qqkA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.17.6&externalPlugins=&assumptions=%7B%7D
+Ou: https://babeljs.io/ e clique em Try it out.
+
+No menu da esquerda, em TARGETS, deixe apenas a opção "defaults".
+No campo da esquerda, digite nosso código:
+const aula = disciplina => `Neste momento nós estamos na aula de ${disciplina.toUpperCase()}.`
+console.log(aula('Compiladores'))
+
+No campo da direita aparecerá o código correspondente retrocompatível:
+"use strict";
+
+var aula = function aula(disciplina) {
+  return "Neste momento n\xF3s estamos na aula de ".concat(disciplina.toUpperCase(), ".");
+};
+
+console.log(aula('Compiladores'));
+
+* Princípios da Compilação (Cooper, 2014):
+	1) O compilador deve preservar o significado do programa a ser compilado.
+		Ou seja, a tradução não pode alterar o que o programa faz. É necessário traduzir com exatidão.
+	2) O compilador deve melhorar o programa de entrada de alguma forma perceptível.
+		Como? Tornando o programa executável na máquina alvo.
+		O babel (transpiler), por exemplo, cumpre esses princípios?
+
+* Fases da Compilação
+
+Resumimos inicialmente o compilador assim:
+Fonte -> Compilador -> Alvo
+
+Observando a compilação em detalhes, vemos que o processo possui duas (ou três) fases:
+- análise (front-end) e síntese (back-end).
+	-----------     ---------------------------     ----------
+	|         |     | --------- IR ---------  |     |        |
+	|  Fonte  |  -> | |Análise| -> |Síntese|  | ->  | Alvo   |
+	|         |     | ---------    ---------  |     |        |
+	|         |     |                         |     |        |
+	-----------     |               Compilador|     ----------
+					---------------------------
+
+- análise (front-end), otimização e síntese (back-end).
+	-----------     --------------------------------------------     ----------
+	|         |     | --------- IR¹------------  IR²---------  |     |        |
+	|  Fonte  |  -> | |Análise| -> |Otimizador| ->  |Síntese|  | ->  | Alvo   |
+	|         |     | ---------    -----------      ---------  |     |        |
+	|         |     |                                          |     |        |
+	-----------     |                               Compilador |     ----------
+					--------------------------------------------
+
+¹Um programa de composição tipográfica que produz PostScript toma como entrada uma especificação de como o documento aparece na página impressa e produz como saída um arquivo PostScript. PostScript é uma linguagem para descrever imagens. Como este programa assume uma especificação executável e
+produz outra também executável, é um compilador. O código que transforma PostScript em pixels é normalmente um interpretador, não um compilador (adaptado de Cooper, 2014).
+
+Exercícios.
+
+Referências:
+André Rauber Du Bois. Notas de Aula sobre Compiladores. 09 ago. 2011.
+Cooper, Keith, and Linda Torczon. Construindo Compiladores. Vol. 1. Elsevier Brasil, 2014.
+Goldwasser, Shafi, and Guy N. Rothblum. "On best-possible obfuscation." TCC. Vol. 4392. 2007.
