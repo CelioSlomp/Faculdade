@@ -1,18 +1,34 @@
-public class ListaDuplaIterator {
-    public void first() {
+public class ListaDuplaIterator implements Iterator {
+
+    private NoListaDupla atual;
+    private int posicao = 0;
+
+    public ListaDuplaIterator(NoListaDupla prim) {
+        this.atual = prim;
     }
 
-    public void last();
+    public void first() {
 
-    public void hasNext();
+    }
 
-    public void hasPrevious();
+    public void last() {
+    }
 
-    public void next();
+    public void hasNext() {
+    }
 
-    public void nextIndex();
+    public void hasPrevious() {
+    }
 
-    public void previous();
+    public void next() {
+    }
 
-    public void previousIndex();
+    public void nextIndex() {
+    }
+
+    public void previous() {
+    }
+
+    public void previousIndex() {
+    }
 }
