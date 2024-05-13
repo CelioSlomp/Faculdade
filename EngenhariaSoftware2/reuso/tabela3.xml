@@ -11,9 +11,9 @@
 	<chaveprimaria>
 		<colunas>
 		<coluna>id_aluno</coluna>
-		<coluna>id_disciplina</coluna> 	<!-- chave primario ou estrangeira? -->
-		<coluna>ano</coluna>			<!-- chave primario ou estrangeira? -->
-		<coluna>semestre</coluna>		<!-- chave primario ou estrangeira? -->
+		<coluna>id_disciplina</coluna>
+		<coluna>ano</coluna>
+		<coluna>semestre</coluna>
 		</colunas>
 	</chaveprimaria>
 </tabela>
