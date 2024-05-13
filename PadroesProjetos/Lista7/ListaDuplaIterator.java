@@ -1,4 +1,4 @@
-public class ListaDuplaIterator {
+public class ListaDuplaIterator implements Iterator {
     public void first() {
     }
 
