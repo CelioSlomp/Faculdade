@@ -3,15 +3,15 @@ public interface Iterator {
 
     public void last();
 
-    public void hasNext();
+    public boolean hasNext();
 
-    public void hasPrevious();
+    public boolean hasPrevious();
 
-    public void next();
+    public int next();
 
-    public void nextIndex();
+    public int nextIndex();
 
-    public void previous();
+    public int previous();
 
-    public void previousIndex();
+    public int previousIndex();
 }

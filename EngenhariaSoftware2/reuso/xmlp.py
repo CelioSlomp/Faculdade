@@ -44,7 +44,7 @@ def criarTabela():
 
     codigoQuery = 'create table ' + nomeTabela + ' (' + atributosTabela + ');'
 
-    print(codigoQuery) # Printa o codigo que vai ser executado
+    # print(codigoQuery) # Printa o codigo que vai ser executado
 
     return codigoQuery
 
