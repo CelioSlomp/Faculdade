@@ -1,0 +1,75 @@
+Anotações:
+
+
+
+Atividade:
+
+    PDF:
+
+    Seria possível
+        1. reaproveitar a variável b, evitando o uso da variável t? Como?
+        Resposta: Sim, seria possível. Fazendo: b = 2 * b * c;
+
+    ----------------------------------------------------------------------------------
+        2. substituir diretamente o valor 2*b*c por 60 na fórmula? E se os valores de b e c
+        fossem informados pelo usuário?
+        Resposta: Poderia ser feita a substituição. Entretanto, caso os valores de b e caso
+        fossem passador pelo usuário, a substituição seria impossível.
+
+    ----------------------------------------------------------------------------------
+        3. substituir a atribuição da variável t por t=b*c; t+=t;? Qual é a diferença?
+        Resposta: Seria possível, mas atrapalharia a legibilidade do código e não seria
+        se isso iria otimizar de alguma forma.
+
+----------------------------------------------------------------------------------
+    Final do DPF:
+
+        1. Explique como uma otimização bem-sucedida pode impactar um código gerado.
+        Resposta: Como uma boa otimização reduz os espaços de memória, contas que precisam
+        ser feitas, e etc. ele pode reduzir o tempo de execução do programa. Com um exemplo
+        fica melhor, pense um código que faz 10 iterações, após a otimização ele faz 5, levando
+        em conta de que cada iteração leve 1 segundo, sem a otimização, o programa iria levar
+        10 segundos para executar, enquanto que com a otimização ele leva 5 segundos.
+
+    ----------------------------------------------------------------------------------
+        2. Quais são as diferenças entre os modelos de compilação de duas e três fases? Quais
+        são as vantagens e desvantagens de cada abordagem?
+        Resposta: O modelo de compilação de duas fases não possui a parte de otimização, o que
+        faz com que o código que vai ser compilado, seja o código 'cru'. Já o de três fases passa
+        pela otimização. A principal vantagem de um de duas fases é a de que o código será compilado
+        de forma mais rápida, enquanto que o de três fases não. E as desvantagens são as que 
+        a de duas fases, sem a otimização, irá passar por todo o código da forma que foi escrita.
+        Enquanto que a de três fases irá executar o código que tinha sido otimizado pelo compilador.
+
+----------------------------------------------------------------------------------
+    SIGAA:
+        
+        1. Pesquise e responda:
+        1.1. O que são compiladores de passagem única e de duas passagens?
+        Resposta: Um compilador de passagem única é um compilador que passa por cada parte do
+
+    ----------------------------------------------------------------------------------
+        1.2. Quais são as vantagens e desvantagens dos compiladores de passagem única e de duas passagens?
+    
+    ----------------------------------------------------------------------------------
+        2. Que otimização pode ser feita no código abaixo? Mostre o código resultante e justifique sua resposta.
+
+        while (i < 10*j) {
+        a[i] = i + 2*j;
+        ++i;
+        }
+
+    ----------------------------------------------------------------------------------
+        3. Observe e execute os códigos aula-2-divisao-por-2.c e aula-2-multiplicacao-por-0.5.c.
+        Compile e execute cinco vezes:
+        > gcc aula-2-multiplicacao-por-0.5.c; for i in $(seq 5); do time ./a.out 1000000000; done
+        > gcc aula-2-divisao-por-2.c; for i in $(seq 5); do time ./a.out 1000000000; done
+        3.1. O que fazem os códigos?
+
+    ----------------------------------------------------------------------------------
+        3.2. Existem diferenças entre eles?
+
+    ----------------------------------------------------------------------------------
+        3.3. Os resultados da execução acima foram diferentes? Por que isso acontece? 
+
+    
