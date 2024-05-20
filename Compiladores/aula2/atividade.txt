@@ -13,8 +13,8 @@ Atividade:
     ----------------------------------------------------------------------------------
         2. substituir diretamente o valor 2*b*c por 60 na fórmula? E se os valores de b e c
         fossem informados pelo usuário?
-        Resposta: Poderia ser feita a substituição. Entretanto, caso os valores de b e caso
-        fossem passador pelo usuário, a substituição seria impossível.
+        Resposta: Poderia ser feita a substituição. Entretanto, caso os valores de b e c
+        fossem passados pelo usuário, a substituição seria impossível.
 
     ----------------------------------------------------------------------------------
         3. substituir a atribuição da variável t por t=b*c; t+=t;? Qual é a diferença?
@@ -46,10 +46,18 @@ Atividade:
         
         1. Pesquise e responda:
         1.1. O que são compiladores de passagem única e de duas passagens?
-        Resposta: Um compilador de passagem única é um compilador que passa por cada parte do
+        Resposta: Um compilador de passagem única é um compilador que passa por cada parte da compilação
+        apenas uma vez, ou seja, análise -> Otimização -> síntese apenas uma vez. Já o de duas passagens
+        processa o código duas vezes, a primeira faz a parte da análise e a segunda faz a parte da 
+        otimização e síntese. Fica mais ou menos assim:
+        1ª análise ->
+        2ª otimização -> síntese
 
+        Fonte: https://www.geeksforgeeks.org/single-pass-two-pass-and-multi-pass-compilers/
     ----------------------------------------------------------------------------------
         1.2. Quais são as vantagens e desvantagens dos compiladores de passagem única e de duas passagens?
+        Resposta: O de passagem única compila mais rápido, enquanto que o de duas passagens não. O de uma 
+        passagem não possui tanta otimização como o de duas passagens.
     
     ----------------------------------------------------------------------------------
         2. Que otimização pode ser feita no código abaixo? Mostre o código resultante e justifique sua resposta.
@@ -65,11 +73,17 @@ Atividade:
         > gcc aula-2-multiplicacao-por-0.5.c; for i in $(seq 5); do time ./a.out 1000000000; done
         > gcc aula-2-divisao-por-2.c; for i in $(seq 5); do time ./a.out 1000000000; done
         3.1. O que fazem os códigos?
+        Resposta: Ambos dividem por 2 o valor da variável 'a'.
 
     ----------------------------------------------------------------------------------
         3.2. Existem diferenças entre eles?
+        Resposta: Segundo a lógica matemática não pois ambos geram o mesmo resultado. 
 
     ----------------------------------------------------------------------------------
         3.3. Os resultados da execução acima foram diferentes? Por que isso acontece? 
+        Resposta: Os resultados não foram diferentes, mas o tempo de execução de cada um foi de
+        cerca de 0,2 segundos de diferença.
+        Multiplicando por 0.5:  real    0m1.370s
+        Dividindo por 2:        real    0m1.574s
 
     
