@@ -1,0 +1,86 @@
+Anotações:
+
+    Scanner fornece tokens para o Parser
+    Scanner <-> Parser
+
+Atividade:
+
+    AULA:
+        Como seriam as regras de uma (*) para nomes de variáveis em C?
+        a. GLC (Gramática livre de contexto):
+        Resposta:
+            S -> AB
+            A -> letra | _ | $
+            B -> letraB | $B | _B | numB | conj. vazio
+            letra -> a | b | ... | z  | A | B | ... | z
+            num -> 0 | 1 | .. | 9
+
+        ----------------------------------------------------------------------------------
+        b. GR (Gramática Regular):
+        Resposta:
+            id -> [letra | _ | $][letra | _ | $ | num]*
+            letra -> a | b | ... | z  | A | B | ... | z
+            num -> 0 | 1 | .. | 9
+            
+    ----------------------------------------------------------------------------------    
+        int y = 1;
+        int x = 0;
+        x = x + y *10;
+        x = (y+tmp)*30;
+        
+        Quais são os lexemas, suas categorias e os tokes?
+
+        Obs.: Precisa repetir todas as ocorrencias dos lexemas, pelo fato de que o
+        compilador nao vai saber se o x é um identificador ou um parametro ou seja 
+        lá o que for. Também precisa colocar na ordem que se lê.
+
+        formato: lexema - categoria
+        respostas: 
+
+        int - reservada     <int, >
+        y - identificador   <id, 1>
+        = - operador        <=, >
+        1 - constante       <const, >
+        ; - delimitador     <;, >
+
+        # Fazer para os outros também.
+
+        int - reservada
+        x - identificador
+        y - identificador
+        y - identificador
+        x - identificador
+        x - identificador
+        x - identificador
+        tmp - identificador
+        = - operador
+        = - operador
+        = - operador
+        ; - delimitador
+        + - operador
+        * - operador
+        ( - separador
+        ) - separador
+        0 - constante
+        10 - constante
+        30 - constante
+----------------------------------------------------------------------------------
+    SIGAA:
+
+    Para a expressão salario = remuneracaoBase * 2 + comissao, responda:
+    1. Quem são os lexemas?
+    Resposta:
+
+    ----------------------------------------------------------------------------------
+    2. Quais são os tokens?
+    Resposta:
+
+    ----------------------------------------------------------------------------------
+    3. Como ficaria a tabela de símbolos?
+    Resposta:
+
+    ----------------------------------------------------------------------------------
+    4. Alguma das respostas anteriores seria diferente se a expressão fosse 
+    salario = remuneracaoBase + remuneracaoBase + comissao? Justifique por que 
+    cada resposta anterior permanece igual ou fica diferente.
+    Resposta:
