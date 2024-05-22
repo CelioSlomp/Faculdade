@@ -43,27 +43,32 @@ Atividade:
         1 - constante       <const, >
         ; - delimitador     <;, >
 
-        # Fazer para os outros também.
+        int - reservada     <int, >
+        x - identificador   <id, 2>
+        = - operador        <=, >
+        0 - constante       <const, >
+        ; - delimitador     <;, >
+        
+        #### Após aqui, o que são as variáveis?
 
-        int - reservada
+        x - identificador   
+        = - operador        <=, >
         x - identificador
+        + - operador        <+, >
         y - identificador
+        * - operador        <*, >
+        10 - constante      <const, >
+
+        x - identificador
+        = - operador        <=, >
+        ( - separador       <sep, >
         y - identificador
-        x - identificador
-        x - identificador
-        x - identificador
+        + - operador        <+, >
         tmp - identificador
-        = - operador
-        = - operador
-        = - operador
-        ; - delimitador
-        + - operador
-        * - operador
-        ( - separador
-        ) - separador
-        0 - constante
-        10 - constante
-        30 - constante
+        ) - separador       <sep, >
+        * - operador        <*, >
+        30 - constante      <const, >
+        ; - delimitador     <;, >
 ----------------------------------------------------------------------------------
     SIGAA:
 

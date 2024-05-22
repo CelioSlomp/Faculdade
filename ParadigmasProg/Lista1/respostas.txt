@@ -50,7 +50,16 @@ public class Ex2 {
 
 ------------------------------------------------------------
 3 - Pesquise algum recurso de linguagem de programação não visto em aula e demonstre seu uso prático através de um exemplo.
-Resposta:
+Resposta: Não sei se isso se encaixa, uma linguagem de programação lazy, como Haskell.
+    Em Haskell, quando se chama alguma função ou pede para fazer alguma operação, ele não a faz até que seja realmente necessária,
+    um exemplo:
+        take n list
+        take 5 [1..]
+        
+        o comando take retorna os n primeiros elementos de uma list. No exemplo dado, [1..] é uma lista infinita, ou seja vai estourar
+        a memória em uma linguagem de programação normal, entretanto, o Haskell primeiro descobre o que precisa ser feito para depois 
+        executar o resto. Desta forma, ele precisa pegar os 5 primeiros elementos, e como a lista é infinita, ele vai gerar apenas os 5
+        primeiros elementos da lista.
 
 ------------------------------------------------------------
 4 - Pesquise em que linguagem a maior parte do UNIX foi escrita.
