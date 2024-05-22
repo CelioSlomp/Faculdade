@@ -6,12 +6,16 @@ int main()
     printf("Digite um numero inteiro: ");
     scanf("%d", &num);
 
-    for (int i = 1; i < num + 1; i++)
+    if (num < 0)
+        printf("Valor negativo\n");
+    else
     {
-        fatorial = fatorial * i;
+        for (int i = 1; i < num + 1; i++)
+        {
+            fatorial = fatorial * i;
+        }
+
+        printf("%ld\n", fatorial);
     }
-
-    printf("%d", fatorial);
-
     return 0;
 }

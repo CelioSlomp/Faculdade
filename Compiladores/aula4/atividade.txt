@@ -1,0 +1,93 @@
+Anotações:
+
+
+Exercícios:
+    PDF:
+
+    1. Como seriam as regras de produção de uma Gramática Livre de Contexto – GLC que gera números inteiros?
+    Resposta: 
+        S -> AB
+        A -> Cnum | vazio
+        B -> numB | vazio
+        num -> 0 .. 9 | vazio
+        C -> + | - | vazio
+
+    ----------------------------------------------------------------------------------
+    2. Como seriam as regras de produção de uma Gramática Regular – GR que gera números inteiros?
+    Resposta: 
+        S -> [((+|-|vazio) (0 .. 9)) | vazio ][0 .. 9]*
+
+    ----------------------------------------------------------------------------------
+    3. Na expressão x = (y + tmp) * 30;
+        a. Quais são os lexemas e suas respectivas categorias?
+            x,y,tmp -> identificador
+            =,+,* -> operador
+            (,) -> separador
+            ; -> delimitador
+            30 -> constante
+
+        b. Quais são os tokens?
+            <id, 1>
+            <=, >
+            <(, >
+            <id, 2>
+            <+, >
+            <id, 3>
+            <), >
+            <*, >
+            <const, >
+            <;, >
+
+    ----------------------------------------------------------------------------------
+    4. (POSCOMP QUESTÃO 68) A tarefa principal de um analisador léxico consiste em ler os caracteres da entrada do programa-fonte, agrupá-los em lexemas e gerar uma sequência de tokens que será enviada ao analisador sintático. Sobre o analisador léxico, analise as assertivas abaixo:
+    I. Além da identificação de lexemas, outras tarefas podem ser realizadas por esse analisador, tais como: remoção de comentários e espaços em branco e a associação de mensagens de erros às linhas do programa-fonte.
+    II. Token é a unidade básica do texto-fonte. Pode ser representado por três informações: a classe do token, que representa o tipo do token reconhecido, o valor do token, que é o texto do lexema reconhecido e a posição que indica o local do texto-fonte (linha e coluna) onde ocorreu o token.
+    III. Expressões regulares e geradores de analisadores léxicos são notações utilizadas para especificar os padrões de lexemas.
+    IV. Na análise léxica, uma representação intermediária do tipo árvore é criada. Esta apresenta a estrutura gramatical da sequência de tokens.
+
+    Quais estão corretas?
+        Apenas I.
+        Apenas II.
+        Apenas IV.
+        x Apenas I e II.
+        Apenas III e IV.
+
+----------------------------------------------------------------------------------
+    Final do arquivo:
+
+    Existe(m) erro(s) léxico(s) no código abaixo? Se sim, qual?
+    
+    #include <stdio.h>
+    // Função principal
+    int main(int argc, char const *argv[]) {
+        short dvar = 4444;
+        short a = 1;
+        short $teste$ = 5555;
+        short #teste# = 666;
+
+        printf("%hd\n", dvar + a);
+        printf("%hd\n", $teste$);
+        printf("%hd\n", #teste#);
+
+        return 0;
+        /* Fim do código
+    }
+
+    Resposta:   #teste# -> duas vezes,  
+                /* não é finalizado
+
+
+    ----------------------------------------------------------------------------------
+    Qual é o erro léxico do código abaixo e como ele pode ser corrigido?
+    #include <stdio.h>
+
+    int main() {
+        short $teste$ = 666666 + 1;
+        printf("%hd\n", $teste$);
+        return 0;
+    }
+    Resposta: O problema está no '666666', pois o tipo short nao suporta.
+
+    ----------------------------------------------------------------------------------
+    Qual é a diferença entre token e lexema?
+

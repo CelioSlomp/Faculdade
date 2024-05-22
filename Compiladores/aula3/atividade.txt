@@ -51,24 +51,25 @@ Atividade:
         
         #### Após aqui, o que são as variáveis?
 
-        x - identificador   
+        x - identificador   <id, 2>
         = - operador        <=, >
-        x - identificador
+        x - identificador   <id, 2>
         + - operador        <+, >
-        y - identificador
+        y - identificador   <id, 1>
         * - operador        <*, >
         10 - constante      <const, >
 
-        x - identificador
+        x - identificador   <id, 2>
         = - operador        <=, >
         ( - separador       <sep, >
-        y - identificador
+        y - identificador   <id, 1>
         + - operador        <+, >
-        tmp - identificador
+        tmp - identificador <id, 3>
         ) - separador       <sep, >
         * - operador        <*, >
         30 - constante      <const, >
         ; - delimitador     <;, >
+        
 ----------------------------------------------------------------------------------
     SIGAA:
 
