@@ -13,7 +13,10 @@ int main()
     printf("Digite um numero inteiro: ");
     scanf("%d", &num);
 
-    printf("%d", fatorial(num));
+    if (num < 0)
+        printf("Valor negativo.");
+    else
+        printf("%ld", fatorial(num));
 
     return 0;
 }
