@@ -3,20 +3,12 @@ LETRA       [a-zA-Z]
 UNDERLINE   "_"
 PONTO       "."
 
-ZERO        [0]
-BIN         "b"
-BINUM       [01]
-HEX         "x"
-HEXUM       [0-9a-fA-F]
+ANO         "2020"
 
-LETRAMAI    [A-Z]
-ESPACO      " "
 
 %%
 
-({LETRAMAI}{3,3})({ESPACO})?+({DIGITO}{4,4})          { printf("placa: %s\n", yytext); }
-({ZERO})?+{BIN}({BINUM}+)                     { printf("número binário: %s\n", yytext); }
-({ZERO})?+{HEX}({HEXUM}+)                     { printf("número hexadecimal: %s\n", yytext); }
+{ANO}({DIGITO}{6,6})                          { printf("matricula: %s\n", yytext); }
 {DIGITO}+                                     { printf("número inteiro:  %s\n", yytext); }
 ({DIGITO})?+{PONTO}({DIGITO}+)                { printf("número real:  %s\n", yytext); }
 {LETRA}+({UNDERLINE}*{DIGITO}*{LETRA}*)*      { printf("variável: %s\n", yytext); }
