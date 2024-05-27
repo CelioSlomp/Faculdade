@@ -8,8 +8,9 @@ ESPACO      " "
 
 %%
 
-({LETRAMAI}{3,3})({ESPACO})?+({DIGITO}{4,4})          { printf("placa: %s\n", yytext); }
-{DIGITO}+                                     { printf("número inteiro:  %s\n", yytext); }
+
+({LETRAMAI}{3}{DIGITO}{LETRAMAI}{DIGITO}{2})|({LETRAMAI}{3,3})(" ")?({DIGITO}{4,4})          { printf("placa: %s\n", yytext); }
+{DIGITO}+                                             { printf("número inteiro:  %s\n", yytext); }
 ({DIGITO})?+{PONTO}({DIGITO}+)                { printf("número real:  %s\n", yytext); }
 {LETRA}+({UNDERLINE}*{DIGITO}*{LETRA}*)*      { printf("variável: %s\n", yytext); }
 
