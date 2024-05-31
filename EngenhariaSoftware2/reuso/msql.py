@@ -1,17 +1,9 @@
 import mysql.connector
 from xml.dom import minidom
 
-def main():
-    ## Cria a tabela e o cursor
-
-    # *Passar o user, password e database de acordo com o seu computador
-    conn = mysql.connector.connect(host="127.0.0.1",        # Endereco do banco de dados
-                                   user="celiols",             # O usuario com premissoes (de preferencia root)
-                                   password='1234',         # A senha de usuario
-                                   database="bancoDados")   # O banco de dados
+def principal(cursor):
     # *Passar o user, password e database de acordo com o seu computador
 
-    cursor = conn.cursor()
     atributosBd = ""            # Todos os atributos
     atributosBdSemId = ""       # Os atributos sem o Id
     atributosBdTipoIn = ""      # Os atributos sem o Id com o seu tipo para "in" de parametro
@@ -26,10 +18,12 @@ def main():
         cursor.execute("show columns from ".__add__(nomeTabela).__add__(";"))
         listaColunas = cursor.fetchall() # pega os resultados do show columns
         # print(listaColunas) # para printar os atributos da tabela
+        identificadores = []
 
         for i in listaColunas:              # pega o identificador e coloca todo o resto 
             if i[3] == 'PRI':               # está meio feio, mas eu gostaria que fizesse
                 identificador = i           # tudo em um laço só para não ficar muito lento
+                identificadores.append(i)
             else:
                 # Adiciona aquilo necessário para a variável virar parâmetro
                 parametro = i[0] + "Par, "
@@ -49,52 +43,96 @@ def main():
         atributosBdTipoOut = atributosBdTipoOut[:-2]
 
         # executa os 'create procedure ...' no banco de dados
-        cursor.execute(criarInsert(nomeTabela, atributosBdSemId, identificador, atributosBdPar, atributosBdTipoIn))
-        cursor.execute(criarDelete(nomeTabela, identificador))
-        cursor.execute(criarUpdate(nomeTabela, atributosBdTipoIn, identificador, atributosSets))
-        cursor.execute(criarSelect(nomeTabela, atributosBdTipoOut, identificador, atributosBd, atributosBdPar))
+
+        cursor.execute(criarInsert(nomeTabela, atributosBdSemId, identificador, atributosBdPar, atributosBdTipoIn, identificadores))
+        cursor.execute(criarDelete(nomeTabela, identificador, identificadores))
+        cursor.execute(criarUpdate(nomeTabela, atributosBdTipoIn, identificador, atributosSets, identificadores))
+        cursor.execute(criarSelect(nomeTabela, atributosBdTipoOut, identificador, atributosBd, atributosBdPar, identificadores))
 
     except mysql.connector.Error as erroMysql:
         print(erroMysql) # Printa o erro do mysql, geralmente é da tabela que não existe ou o bd que nao existe
 
-def criarInsert(nomeTabela, atributosBdSemId, identificador, atributosBdPar, atributosBdTipoIn):
+def criarInsert(nomeTabela, atributosBdSemId, identificador, atributosBdPar, atributosBdTipoIn, identificadores):
 
-    codigoQuery = "create procedure if not exists " + nomeTabela + "_insere(\
-    out " + identificador[0] + "Par " + identificador[1] + ", " + atributosBdTipoIn + ")\
-    begin\
-    insert into " + nomeTabela + " (" + atributosBdSemId + ") values (" + atributosBdPar + ");\
-    SELECT LAST_INSERT_ID() into " + identificador[0] + "Par;\
-    end"
+    if len(identificadores) == 1:
+        codigoQuery = "create procedure if not exists " + nomeTabela + "_insere(\
+        out " + identificador[0] + "Par " + identificador[1] + ", " 
+        codigoQuery += atributosBdTipoIn + ") begin\
+        insert into " + nomeTabela + " (" + atributosBdSemId + ") values (" + atributosBdPar + ");"
+        
+        codigoQuery += "SELECT LAST_INSERT_ID() into " + identificador[0] + "Par; end"
+
+    else:
+        chavesPrim = ""
+        chavesPrimSemPar = ""
+        for i in identificadores:
+            chavesPrimSemPar += i[0] + "Par, "
+            chavesPrim += "in " + i[0] +"Par " + i[1] + ", "
+        
+        if len(chavesPrimSemPar) > 1:
+            chavesPrimSemPar = chavesPrimSemPar[:-2]
+        
+        codigoQuery = "create procedure if not exists " + nomeTabela + "_insere(" + \
+        chavesPrim + atributosBdTipoIn + ") begin insert into " + nomeTabela + " values (" + chavesPrimSemPar + ", " + atributosBdPar + "); end"
 
     return codigoQuery
 
-def criarSelect(nomeTabela, atributosBdTipoOut, identificador, atributosBd, atributosBdPar):
-    codigoQuery = "create procedure if not exists " + nomeTabela + "_seleciona(\
-    in " + identificador[0] + "Par " + identificador[1] + ", " + atributosBdTipoOut + ")\
+def criarSelect(nomeTabela, atributosBdTipoOut, identificador, atributosBd, atributosBdPar, identificadores):
+
+    wheres = ""
+    chavesPrim = ""
+    for i in identificadores:
+        chavesPrim += "in " + i[0] +"Par " + i[1] + ", "
+        wheres += i[0] + "=" + i[0] + "Par and "
+
+    wheres = wheres[:-4]
+
+    codigoQuery = "create procedure if not exists " + nomeTabela + "_seleciona(" + chavesPrim + \
+    atributosBdTipoOut + ")\
     begin\
     select " + atributosBd + " into " + atributosBdPar + "\
-    from " + nomeTabela + " where " + identificador[0] + "=" + identificador[0] + "Par;\
-    end"
+    from " + nomeTabela + " where " + wheres + "; end"
 
     return codigoQuery
 
-def criarUpdate(nomeTabela, atributosBdTipoIn, identificador, atributosSets):
-    codigoQuery = "create procedure if not exists " + nomeTabela + "_atualiza(\
-    in " + identificador[0] + "Par " + identificador[1] + ", " + atributosBdTipoIn + ")\
+def criarUpdate(nomeTabela, atributosBdTipoIn, identificador, atributosSets, identificadores):
+    wheres = ""
+    chavesPrim = ""
+    for i in identificadores:
+        chavesPrim += "in " + i[0] +"Par " + i[1] + ", "
+        wheres += i[0] + "=" + i[0] + "Par and "
+    
+    wheres = wheres[:-4]
+    
+
+    codigoQuery = "create procedure if not exists " + nomeTabela + "_atualiza(" + \
+    chavesPrim + atributosBdTipoIn + ")\
     begin\
     update " + nomeTabela + " set " + atributosSets + " \
-    where " + identificador[0] + " = " + identificador[0] + "Par;\
+    where " + wheres+ "; \
     end"
 
     return codigoQuery
 
-def criarDelete(nomeTabela, identificador):
-    codigoQuery = "create procedure if not exists " + nomeTabela + "_deleta(in " + identificador[0] + "Par int)\
+def criarDelete(nomeTabela, identificador, identificadores):
+    wheres = ""
+    if len(identificadores) == 1:
+        codigoQuery = "create procedure if not exists " + nomeTabela + "_insere(\
+        out " + identificador[0] + "Par " + identificador[1] + ", " 
+        wheres += identificador[0] + "=" + identificador[0] + "Par"
+    else:
+        chavesPrim = ""
+        for i in identificadores:
+            chavesPrim += "in " + i[0] +"Par " + i[1] + ", "
+            wheres += i[0] + "=" + i[0] + "Par and "
+        
+        wheres = wheres[:-4]
+
+    codigoQuery = "create procedure if not exists " + nomeTabela + "_deleta(" + chavesPrim[:-2] + ")\
     begin\
-    delete from " + nomeTabela + " where " + identificador[0] + " = " + identificador[0] + "Par;\
-    end"
+    delete from " + nomeTabela + " where " + wheres + "; end"
 
     return codigoQuery
 
 if __name__ == "__main__":
-    main()
+    principal()

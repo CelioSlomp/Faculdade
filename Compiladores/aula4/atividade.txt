@@ -92,4 +92,15 @@ Exercícios:
     Qual é a diferença entre token e lexema?
 
 
-    
+    Utilizando flex, elabore um analisador léxico para cada caso:
+        que reconheça expressões no formato binário (iniciando com 0b) e no formato hexadecimal (iniciando com 0x).
+        que reconheça strings que representem placas de veículos brasileiros. Para isso, considere os padrões antigo e novo. Faça com que o analisador reconheça as entradas com espaço na posição em que ele pode ser esperado. Por exemplo, as placas ABC1234 e ABC 1234 devem ser reconhecidas.
+        que reconheça as palavras reservadas da linguagem Python.
+        que reconheça as matrículas de 2020 dos alunos do IFC.
+
+    Os exemplos criados ainda são bastante simples. Além disso, os itens léxicos costumam ser divididos em categorias, o que é especialmente válido para linguagens de programação. Tomando como base a classificação de itens léxicos apresentada em aulas anteriores, utilize o (f)lex para criar um scanner que reconheça itens léxicos válidos. A classificação apresentada continha palavras reservadas, identificadores, constantes, operadores, textos e delimitadores (ou separadores). Salve-as em um arquivo lexico-seu-nome.l.
+    Alguns dos testes que serão feitos:
+        > +.1 + (+.1)
+        > int x = 0; while (x++ > 10) { printf("Vou passar em Compiladores!\n"); }
+        > unsigned int minhaNota = 5; if (nota < 6) { printf("REPROVADO"); }
+        > int main() { printf("Hello, world!\n"); return 0; }
