@@ -53,7 +53,7 @@ D → (A) | ε<br>
 |-|-|-|-|-|
 |A|A -> -A| A -> (A)| A -> CB||
 |B|B -> -A||| B -> $|
-|C|C -> idD||||
+|C|||C -> idD||
 |D||D -> (A)||D -> $|
 
 #### Tabela do exercício
