@@ -97,7 +97,7 @@ someValores (x : xs) = drop 1 xs -- drop N [List] -> retira N elementos de [List
 
 -- Ex9 ---------------------------------------
 
-listaZeroNum :: Int -> [Int] -- Por que que nos outros podia [a] e neste não de retorno?
+listaZeroNum ::  Int -> [Int]
 listaZeroNum x
   | x < 0 = listaZeroNum (x * (-1))
   | x == 0 = [0]
@@ -161,13 +161,13 @@ addFriboi = map (++ " Friboi") -- funcao map adiciona algo em todos os elementos
 -- Ex15 --------------------------------------
 
 pertence :: Int -> [Int] -> Bool
+pertence _ [] = False
 pertence y (x : xs)
   | y == x = True
-  | null xs = False -- Verifica se a lista está vazia
   | otherwise = pertence y xs
 
--- main = do
---  print (pertence 10 [1 .. 100])
+main = do
+  print (pertence 10 [0])
 
 -- Ex16 --------------------------------------
 

@@ -21,3 +21,4 @@ real 		{inteiro}("."{inteiro})?
 "("			return ESQ;
 ")"			return DIR;
 "\n"		return FIM;
+"V"         return RAIZ;

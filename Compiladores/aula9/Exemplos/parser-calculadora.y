@@ -7,14 +7,14 @@ extern int yylex (void);
 %}
 
 %token NUMERO
-%token MAIS MENOS VEZES DIVIDE POTENCIA
+%token RAIZ MAIS MENOS VEZES DIVIDE POTENCIA
 %token ESQ DIR
 %token FIM
 
 %left MAIS MENOS
 %left VEZES DIVIDE
 %left NEG
-%right POTENCIA
+%right RAIZ POTENCIA
 
 %define parse.error verbose
 
@@ -29,6 +29,7 @@ Linha: FIM
 Linha: Expressao FIM { printf("Resultado: %f\n", $1); }
 
 Expressao: NUMERO                       { $$=$1; };
+Expressao: RAIZ Expressao               { $$ = pow($2, 0.5); printf("V %f\n", $2); };
 Expressao: Expressao MAIS Expressao     { $$ =$1 + $3; printf("%f + %f\n", $1, $3); };
 Expressao: Expressao MENOS Expressao    { $$ = $1 - $3; printf("%f - %f\n", $1, $3); };
 Expressao: Expressao VEZES Expressao    { $$ = $1 * $3; printf("%f * %f\n", $1, $3); };

@@ -1,5 +1,3 @@
-module Ex7 where
-
 incremento :: (Num a) => a -> a
 incremento x = x + 1
 
