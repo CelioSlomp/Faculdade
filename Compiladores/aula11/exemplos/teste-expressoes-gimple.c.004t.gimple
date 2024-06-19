@@ -1,0 +1,24 @@
+main ()
+{
+  int D.2254;
+
+  {
+    int a;
+    int b;
+    int c;
+    int d;
+
+    a = 4;
+    b = 5;
+    c = 7;
+    _1 = a + b;
+    d = c + _1;
+    printf ("%i\n", d);
+    D.2254 = 0;
+    return D.2254;
+  }
+  D.2254 = 0;
+  return D.2254;
+}
+
+

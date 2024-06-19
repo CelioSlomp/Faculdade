@@ -1,0 +1,53 @@
+Otimizações do Compilador GCC
+
+- O GCC possui mais de 200 funcionalidades de otimização.
+- Em geral, essas funcionalidades são agrupadas em alguns padrões, que são definidos por meio de um parâmetro com a flag -O, tal como:
+	-O0
+	-O1
+	-O2
+	-O3
+	-Ofast
+	-Os
+	-Og
+
+O conjunto de otimizações ativas em cada parâmetro pode ser consultado com os comandos:
+gcc -O0 -Q --help=optimizers
+gcc -O1 -Q --help=optimizers
+gcc -O2 -Q --help=optimizers
+gcc -O3 -Q --help=optimizers
+gcc -Ofast -Q --help=optimizers
+gcc -Os -Q --help=optimizers
+gcc -Og -Q --help=optimizers
+
+#include <stdio.h>
+int main() {
+	unsigned int i = 0, x = 0;
+	while (i++ < 10000000)
+		x = i * 2;
+	return 0;
+}
+
+Salve o arquivo como otimizando-escrita-numeros.c e compile das três formas abaixo:
+gcc otimizando-escrita-numeros.c -O0 -o teste1 // O mesmo que gcc otimizando-escrita-numeros.c -o teste1
+gcc otimizando-escrita-numeros.c -O1 -o teste2
+gcc otimizando-escrita-numeros.c -O2 -o teste3
+
+Execute com time para ver a diferença:
+time ./teste1
+time ./teste2
+time ./teste3
+
+Outro teste, agora com e sem o parâmetro -Os. Para isso, usaremos o parâmetro -S, assim obtendo o assembly equivalente ao código C:
+gcc -S otimizando-escrita-numeros.c -o teste1.s
+gcc -S otimizando-escrita-numeros.c -Os -o teste2.s
+
+Ao abrir os 2 arquivos, é possível perceber que eles são diferentes. Isso também pode ser comprovado usando o comando:
+diff teste1.s teste2.s
+
+Além disso, é possível observar via interface gráfica, nas propriedades dos arquivos, o tamanho deles. Qual é o menor?
+
+Link para o arquivo otimizando-escrita-numeros.c: https://drive.google.com/file/d/1RmhBHLikhjQX2Hh07-iAKpuGnrXnhxMw/view?usp=sharing
+
+Referências:
+https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+https://medium.com/@guannan.shen.ai/compiler-optimizations-46db19221947
