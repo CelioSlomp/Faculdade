@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>Exemplo</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let botao1 = document.getElementById("botao1");
+            let botao2 = document.getElementById("botao2");
+            botao1.addEventListener("click", function () {
+                alert("botao1 pressionado");
+            });
+            botao2.addEventListener("click", function () {
+                alert("botao2 pressionado");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button type="button" id="botao1">Botao 1</button>
+    <button type="button" id="botao2">Botao 2</button>
+</body>
+
+</html>
