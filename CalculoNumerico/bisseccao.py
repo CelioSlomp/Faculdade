@@ -9,7 +9,7 @@ def main():
     erro = 0.5*10**(-6)
     cont = 0
     xk = (a+b)/2
-    print(f"k={cont} | a={a} | b={b} | xk={xk} | f(a)={f(a):.2f} | f(b)={f(b):.2f} | |b-a|={abs(b-a)}")
+    print(f"k={cont} | a={a:.10f} | b={b:.10f} | xk={xk:.10f} | f(a)={f(a):.2f} | f(b)={f(b):.2f} | |b-a|={abs(b-a)}")
     while abs(b-a) > erro:
 
         if (f(a)*f(xk) > 0):
@@ -19,7 +19,7 @@ def main():
 
         xk = (a+b)/2
         cont+=1
-        print(f"k={cont} | a={a} | b={b} | xk={xk} | f(a)={f(a):.2f} | f(b)={f(b):.2f} | |b-a|={abs(b-a)}")
+        print(f"k={cont} | a={a:.10f} | b={b:.10f} | xk={xk:.10f} | f(a)={f(a):.2f} | f(b)={f(b):.2f} | |b-a|={abs(b-a)}")
 
 
 
