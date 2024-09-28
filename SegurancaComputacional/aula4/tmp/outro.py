@@ -15,16 +15,12 @@ def thre(x1,x2,x3):
                     except:
                         pass
 
-txt = '0123456789'
+txt = 'abcdefghijklmnopqrstuvwxyz'
 for x1 in txt:
     print("mudou o x1", x1)
     print("-------------------------------")
     for x2 in txt:
-        print("mudou o x2", x2)
-        print("-------------------------------")
-        
         for x3 in txt:
-            print(x3)
             x = threading.Thread(target=thre, args=(x1,x2,x3))
             x.start()
             
