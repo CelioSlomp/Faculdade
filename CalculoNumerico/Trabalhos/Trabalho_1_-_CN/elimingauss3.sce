@@ -2,8 +2,8 @@ clear
 
 //Eliminação Gaussiana 3 (pode ter pivô nulo)
 //Entradas
-A = [2 4 -1; 1 2 0; 0 1 1];
-b = [5;3;2];
+A = [5 2 1; -1 4 2; 2 -3 10];
+b = [-12; 20; 3];
 
 //Matriz aumentada
 Ab = [A b];

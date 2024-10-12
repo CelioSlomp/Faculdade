@@ -6,16 +6,13 @@ clear
 //         epsilon: precisão
 //Saída: aproximação para a raiz da função
 
-deff('y=f(x)','y= x**3 + 4*x**2 -10');
-//deff('y=f(x)','y=x**2-2');
-//deff('y=f(x)','y=(x/2)**2 - sin(x)');
-
-a=1;
-b=2;
-epsilon=0.0001;
+deff('y=f(x)','y=4*cos(x)-exp(x)');
+a=0.5;
+b=1;
+epsilon=0.01;
 x=(a+b)/2;
 erro=(b-a);
-while f(x) < epsilon
+while abs(f(x)) > epsilon
     disp('Valor de x: '+ string(x))
     disp('f(x): ' + string(f(x)))
     if f(a)*f(x) < 0

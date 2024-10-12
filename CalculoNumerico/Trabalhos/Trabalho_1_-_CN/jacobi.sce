@@ -2,11 +2,11 @@ clear
 
 //Método de Jacobi
 //Entradas
-A = [4 0 1;1 10 3;2 1 4];
-b = [6;27;12];
-epsilon = 0.01;
-xv=[0.97;1.98;2.05];
-max_it=10;
+A = [10 2 1; -1 4 2; 2 -3 10];
+b = [7; -8; 6];
+epsilon = 0.05;
+xv=[0.7; -1.6; 0.6];
+max_it=100;
 
 n=size(A,1); // número de linhas (número de equações)
 for k=1:max_it
