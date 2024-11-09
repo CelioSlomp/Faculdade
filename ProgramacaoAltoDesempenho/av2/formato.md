@@ -6,11 +6,6 @@
     - falar que a NVIDIA criou núcleos diferenciados para GPU.
 
 
-## GPU
-    - Explicar como uma GPU funciona;
-    - Mostrar as diferenças entre GPU e CPU.
-
-
 ## CUDA Cores
     - Explicar o que são, como funcionam, o que faz, como baixar, etc.
     - Além disso, explicar também como o CuPy a utiliza.
