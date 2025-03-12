@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <math.h>
+#include <shaders/shaderClass.h>
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 {
@@ -75,62 +76,6 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    // We can compile this GLSL only once
-    const char *vertexShaderSource = "#version 330 core\n"
-                                     "layout(location = 0) in vec3 aPos;\n"
-                                     "layout(location = 1) in vec3 aColor;\n"
-                                     "out vec3 ourColor;\n"
-                                     "void main()\n"
-                                     "{\n"
-                                     "gl_Position = vec4(aPos, 1.0);\n"
-                                     "ourColor = aColor;\n"
-                                     " }\0";
-    // After compiling, we safe the shader inside the object (vertexShaderSource) referenced by an ID (vertexShader).
-    unsigned int vertexShader;
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-
-    // We can see if the shader was successfully created:
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n"
-                  << infoLog << std::endl;
-    }
-
-    // Fragment shader is basically the color of the shape.
-    const char *fragmentShaderSource = "#version 330 core\n"
-                                       "out vec4 FragColor;\n"
-                                       "in vec3 ourColor;\n"
-                                       "void main()\n"
-                                       "{\n"
-                                       "FragColor = vec4(ourColor, 1.0);\n"
-                                       "}\0";
-
-    unsigned int fragmentShader;
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-
-    // Now we have to create a shader program, this links the shader output to the next one input.
-    unsigned int shaderProgram;
-    shaderProgram = glCreateProgram();
-
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-
-    // To activate the program
-    // glUseProgram(shaderProgram);
-
-    // We won't use the other shaders anymore.
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-
     // EBO
     unsigned int EBO;
     glGenBuffers(1, &EBO);
@@ -155,12 +100,9 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(shaderProgram);
+        Shader ourShader("include/shaders/vert.vs", "include/shaders/frag.fs");
 
-        float timeValue = glfwGetTime();
-        float greenValue = sin(timeValue) / 2.0f + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        ourShader.use();
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -170,7 +112,6 @@ int main()
     }
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-    glDeleteProgram(shaderProgram);
 
     glfwTerminate();
     return 0;
