@@ -1,5 +1,5 @@
 # Arquivos a serem compilados
-OBJS = main.cpp src/glad.c
+OBJS = main.cpp src/glad.c src/imagem.cpp
 
 # Compilador
 CC = g++
