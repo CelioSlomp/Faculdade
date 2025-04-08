@@ -37,3 +37,4 @@ agente = arquitetura + programa
 
 ### 3.3 Algoritmos de busca
 
+Um algoritmo de busca recebe um problema e retorna a solução (ou uma falha).
