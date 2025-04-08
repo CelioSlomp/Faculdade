@@ -29,3 +29,11 @@ Estático: Um processo não muda durante a execução. Um exemplo é um jogo de 
 
 agente = arquitetura + programa
 
+## Capitulo 3
+
+* Actions(state s) -> retorna um set infinito de ações que podem ser executados em s;
+* Result(s,a) -> retorna o estado que resulta fazendo a ação a no estado s;
+* Action-Cost(s,a,s') -> retorna o custo de aplicar a ação a no estado s para chegar no estado s';
+
+### 3.3 Algoritmos de busca
+
