@@ -38,3 +38,34 @@ agente = arquitetura + programa
 ### 3.3 Algoritmos de busca
 
 Um algoritmo de busca recebe um problema e retorna a solução (ou uma falha).
+
+#### 3.3.1 Best-first algorithm
+
+Figura 3.7 apresenta o algoritmo "guloso", cuja finalidade é retornar o primeiro caminho de grafos que o algoritmo encontrar ou uma falha. Dessa forma, não retorna necessariamente o melhor caminho.
+
+#### 3.3.3 Caminho redundante
+
+É um caminho que leva ao mesmo lugar, mas tem um custo maior (por exemplo, o melhor caminho é de 100km, mas um outro caminho é de 250km).
+
+#### 3.3.4 Medindo a performance
+
+* Completude: Se o algoritmo garante encontrar uma solução caso haja uma;
+* Ótimo custo: Se o algoritmo consegue achar a melhor solução;
+* Complexidade de tempo; Se o algoritmo consegue achar uma solução em tempo polinomial;
+* Complexidade de espaço: Se o algoritmo consegue achar uma solução com uma quaantidade viável de memória.
+
+### 3.4 Estratégias de busca desinformada
+
+O agente não tem ideia do quão perto ele está do estado de destino. 
+
+#### 3.4.1 Busca em largura
+
+O agente começa pela raíz, e abre primeiro os nós filhos da raíz, então abre todos os netos da raíz, e por aí vai. Na figura 3.9 está o pseudo-código.
+
+Este não é um algoritmo ótimo, pois ele acha a melhor solução cujas ações temnham o mesmo custo, mas não quando há custos diferentes.
+
+#### Busca de custo uniforme (algoritmo de Dijkstra)
+
+...
+
+#### 
