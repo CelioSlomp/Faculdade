@@ -25,4 +25,25 @@ chamadaFuncaoImpares :- read(A),
     !.
 
 /*
+Dado um valor N, fazer a divisão de 2N valores
 */
+
+divisao(_, 0) :- 
+    write("solução impossível"), 
+    !.
+divisao(A, B) :- 
+    X is A/B,
+    format("~1f", [X]).
+
+pedeItens(0) :- !.
+pedeItens(X) :- 
+    N is X-1, 
+    read(A), 
+    read(B), 
+    divisao(A, B), 
+    pedeItens(N).
+
+chamadaProblema :- 
+    read(X), 
+    nl,
+    pedeItens(X).
