@@ -33,7 +33,8 @@ divisao(_, 0) :-
     !.
 divisao(A, B) :- 
     X is A/B,
-    format("~1f", [X]).
+    format("~1f", [X]),
+    nl.
 
 pedeItens(0) :- !.
 pedeItens(X) :- 
