@@ -153,7 +153,7 @@ Quando as partes começam a negociar, já ocorreram algumas das condições:
 
 #### Alternativas de Comportamento
 
-* Conceder unilateralmente, ou seja, abrir mão de pontos que não pretendia sem pedir nada em troca -> Gera um sentimento de imcompetência;
+* Conceder unilateralmente, ou seja, abrir mão de pontos que não pretendia sem pedir nada em troca -> Gera um sentimento de incompetência;
 * Marca firme uma posição e não solta -> a outra parte revida e gera um impasse;
 * Barganhar com a outra parte pra reduzir danos ou aumentar ganhos.
 
